@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>STHLM Färdtjänst</title>
+</head>
+<body">
+    <header>
+        <nav>
+            <a id="logo" href="index.html">STHLM Färdtjänst</a>
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="#">Färdtjänstresor</a></li>
+                <li><a href="minasidor.html">Mina sidor</a></li>
+                <li><a href="kundservice.html">Kundservice</a></li>
+            </ul>
+        </nav>
+        <div id="header-container">
+            <div id="header-desc">
+                <h1>SHLM Färdtjänst</h1>
+                <p>Här hittar du information om 
+                    färdtjänstresor och sjukresor</p>
+            </div>
+            <div id="header-image"></div>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <div style="margin: 0 auto; max-width: 650px;">
+                <h2>Din resa</h2>
+                <p>Nedan är din bokade resa. Vid avbeställning måste detta göras 1 timme innan bokad tid. </p>
+            </div>
+            
+                <div id="summary">
+                    <svg version="1.1" id="clock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                viewBox="0 0 466.008 466.008" xml:space="preserve">
+                    <path d="M233.004,0C104.224,0,0,104.212,0,233.004c0,128.781,104.212,233.004,233.004,233.004
+                    c128.782,0,233.004-104.212,233.004-233.004C466.008,104.222,361.796,0,233.004,0z M244.484,242.659l-63.512,75.511
+                    c-5.333,6.34-14.797,7.156-21.135,1.824c-6.34-5.333-7.157-14.795-1.824-21.135l59.991-71.325V58.028c0-8.284,6.716-15,15-15
+                    s15,6.716,15,15v174.976h0C248.004,236.536,246.757,239.956,244.484,242.659z"/>
+                    </svg>
+                    <h3>Klockan <span id="time"></span> <span id="date"></span> </h3>
+                    <svg version="1.1" id="car" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="10px" y="0px"
+                    width="23.789px" height="23.789px" viewBox="0 0 431.789 431.789"
+                    xml:space="preserve"><path d="M422.438,151.93H390.77c-2.412,0-4.73,0.932-6.471,2.6l-6.76,6.476c-11.395-26.366-27.742-52.439-49.822-79.432
+                    c-11.936-14.585-29.586-22.949-48.43-22.949H152.501c-18.846,0-36.497,8.365-48.426,22.95
+                    c-22.777,27.842-38.799,53.287-49.924,79.338l-6.66-6.383c-1.741-1.668-4.06-2.6-6.472-2.6H9.353c-5.166,0-9.353,4.187-9.353,9.353
+                    v21.651c0,4.937,3.838,9.022,8.765,9.334l32.549,2.05c-4.918,14.371-8.758,35.786-8.758,65.987
+                    c0,26.205,5.234,43.428,14.343,54.578v50.449c0,4.326,3.507,7.832,7.833,7.832h36.029c4.328,0,7.836-3.506,7.836-7.832v-31.328
+                    h234.596v31.328c0,4.326,3.508,7.832,7.834,7.832h36.029c4.326,0,7.834-3.506,7.834-7.832v-50.449
+                    c9.107-11.15,14.344-28.373,14.344-54.578c0-30.201-3.84-51.616-8.758-65.987l32.549-2.05c4.926-0.312,8.764-4.397,8.764-9.334
+                    v-21.651C431.789,156.117,427.604,151.93,422.438,151.93z M130.806,103.442c5.346-6.534,13.254-10.283,21.695-10.283h126.786
+                    c8.441,0,16.352,3.749,21.697,10.283c15.447,18.883,27.646,36.954,37.074,54.955l-244.543,0.046
+                    C102.737,140.842,115.005,122.756,130.806,103.442z M104.157,295.693c-17.933,0-32.469-5.857-32.469-20.066
+                    c0-14.208,5.274-25.729,23.206-25.729s41.73,11.521,41.73,25.729S122.087,295.693,104.157,295.693z M249.93,292.732h-68.069
+                    c-10.262,0-18.61-8.348-18.61-18.609c0-2.878,2.334-5.212,5.214-5.212h94.863c2.879,0,5.211,2.334,5.211,5.212
+                    C268.539,284.385,260.191,292.732,249.93,292.732z M327.633,295.693c-17.932,0-32.469-5.857-32.469-20.066
+                    c0-14.208,23.801-25.729,41.73-25.729c17.932,0,23.207,11.521,23.207,25.729S345.566,295.693,327.633,295.693z"/></svg>
+                    <h3>Resa med Taxi</h3>
+                    <svg version="1.1" id="group" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 429.922 429.922" style="enable-background:new 0 0 429.922 429.922;" xml:space="preserve">
+                    <path d="M400.939,205.96c-31.108-35.663-90.083-32.674-121.849,0.237c-15.253-15.247-36.623-23.967-66.683-21.284
+                        c-16.4,1.464-30.596,6.363-42.822,13.709c-6.976-6.447-17.326-10.747-27.288-12.473c-0.674-1.208-2.299-1.658-3.743-1.356
+                        c-0.746-0.625-1.67-1.153-2.795-1.535c-48.933-16.575-95.404,17.46-116.066,60.584C7.654,268.97,3.331,296.877,1.768,324.451
+                        c-0.941,16.659-5.242,38.861,4.405,53.02c-2.598,3.175-1.446,8.766,3.048,10.138c18.527,5.663,40.232,5.275,61.201,3.297
+                        c112.727,9.091,230.741,3.774,342.56,1.729c2.228-0.042,3.889-0.846,5.244-1.925c2.382-0.697,4.367-2.369,4.82-5.411
+                        C430.979,331.984,439.827,250.537,400.939,205.96z"/>
+                    <path d="M230.603,40.208c-34.253-18.952-67.537,7.318-69.139,43.149c-1.412,31.649,24.541,75.672,58.956,59.958
+                        c9.092-0.439,18.249-5.009,26.085-15.269C266.746,101.539,260.645,56.831,230.603,40.208z"/>
+                    <path d="M104.493,55.913c-17.418-5.665-31.469,0.343-40.998,11.566c-32.053,25.828-15.577,104.778,32.854,97.52
+                        C145.568,157.624,151.206,71.108,104.493,55.913z"/>
+                    <path d="M326.472,43.9c-23.769,15.668-28.103,57.804-17.829,82.138c10.272,24.329,42.677,43.926,64.851,22.206
+                        C426.569,123.303,380.149,8.516,326.472,43.9z"/></svg>
+                        <h3><span id="persons"></span>person(er)</h3><br>
+                        <h3>Resa med Taxi</h3>
+                        <h3>Från:<span id="fromAdress"> </span></h3>
+                        <h3>Till:<span id="toAdress"> </span></h3>
+                        <h3>Extra tillval: <span id="extra"></span></h3>
+                        <h3>Namn: Ashraf Hamadi</h3>
+                        <h3>Telefon: <span id="phone"></span></h3>
+                        <div id="buttons">
+                            <button onclick="confirmDelete()" class="default-button cancel" id="cancel">Avbeställ 
+                                <svg id="accept" width="14px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><g data-name="checkmark-circle" ><rect width="24" height="24" opacity="0"/><path d="M9.71 11.29a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 16a1 1 0 0 0 .72-.34l7-8a1 1 0 0 0-1.5-1.32L12 13.54z"/><path d="M21 11a1 1 0 0 0-1 1 8 8 0 0 1-8 8A8 8 0 0 1 6.33 6.36 7.93 7.93 0 0 1 12 4a8.79 8.79 0 0 1 1.9.22 1 1 0 1 0 .47-1.94A10.54 10.54 0 0 0 12 2a10 10 0 0 0-7 17.09A9.93 9.93 0 0 0 12 22a10 10 0 0 0 10-10 1 1 0 0 0-1-1z"/></g></g></svg></button>
+                            
+                        </div>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div class="modal-body">
+                            <div id="box">
+                                <p> <svg version="1.1" id="exclamation_mark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 24 24" xml:space="preserve">
+                               <g>
+                                   <path d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M12,19.66
+                                       c-0.938,0-1.58-0.723-1.58-1.66c0-0.964,0.669-1.66,1.58-1.66c0.963,0,1.58,0.696,1.58,1.66C13.58,18.938,12.963,19.66,12,19.66z
+                                        M12.622,13.321c-0.239,0.815-0.992,0.829-1.243,0c-0.289-0.956-1.316-4.585-1.316-6.942c0-3.11,3.891-3.125,3.891,0
+                                       C13.953,8.75,12.871,12.473,12.622,13.321z"/></svg> Vill du verkligen avbeställa
+                                       nedanstående resa
+                                       </p>
+                            </div>
+                            <p>Från: <span id="box-fromAdress" ></span></p>
+                            <p>Till: <span id="box-toAdress"></span></p>
+                            <p>Klockan: <span id="box-time"></span></p>
+                           
+                            
+                            <a onclick="cancelBooking()" class="default-button order" href="ingaresor.html">Ja</a>
+                            <button style="float:right;" class="default-button cancel close">Nej</button>
+                            </div>
+                            
+                        </div>
+
+                        </div>
+                        
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-container">
+            <section style="border: none;">
+                <h2>Sidor</h2>
+                <a href="#">Start</a>
+                <a href="#">Färdtjänstresor</a>
+                <a href="#">Mina sidor</a>
+                <a href="#">Kundservice</a>
+            </section>
+
+            <section style="border: none;">
+                <h2>Kundservice</h2>
+                <p>Helgfri vardag 12:18:00</p>
+                <a href="#">08-123 64 56</a>
+                <a href="#">kontakt@sthlmfardtjanst.se</a>
+            </section>
+
+        </div>
+    </footer>
+    
+    <script src="./js/main.js"></script>
+    <script>window.addEventListener('load', printData())</script>
+</body>
+</html>
