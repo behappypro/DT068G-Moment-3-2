@@ -4,6 +4,7 @@
     --main-bg-color: #11304E;
     --main-txt-color:#333333;
     --main-btn-color:#0B4F7D;
+    --main-link-color:#0664aa;
   }
 
 body{
@@ -27,6 +28,11 @@ a{
     color: blue;
 }
 
+#heading{
+    font-size: 2.7rem;
+
+}
+
 /*Start icons*/
 svg{
     width: 100px;
@@ -46,12 +52,12 @@ svg{
 }
 #edit,#accept{
     fill: #fff;
-    width: 20px;
-    vertical-align: middle;
+    width: 25px;
+    vertical-align: text-bottom;
     display: inline-block;
 }
 
-#clock,#car,#group{
+#clock,#car,#group,#repeat{
     float: left;
     fill: #000;
     width: 25px;
@@ -129,15 +135,19 @@ nav{
     height: 4.5rem;
 }
 
-ul{
+nav ul{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    height: 4.5rem;
+}
+
+ul{
     font-size: 1.125rem;
     line-height: 2.5rem;
     list-style-type: none;
     margin: 0;
-    height: 4.5rem;
+    padding: 0;
 }
 
 nav a{
@@ -226,13 +236,13 @@ section{
     border: none;
     display: block;
     max-width: 200px;
-    height: 42px;
+    height: 50px;
     margin: 20px auto;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     text-align: center;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .large{
@@ -300,7 +310,7 @@ section{
 
 /*Start form*/
 form{
-    max-width: 400px;
+    max-width: 550px;
     margin: 0 auto;
 }
 
@@ -311,7 +321,7 @@ label{
 input,textarea{
     display: block;
     margin: 20px 0;
-    padding: 10px;
+    padding: 15px;
     width: 90%;
     border-width: 2px;
     border-color: var(--main-bg-color);
@@ -395,7 +405,7 @@ footer section a{
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -465,5 +475,32 @@ footer section a{
         font-weight: 700;
         padding: 10px 40px;
     }
+
+    #breadcrumbs{
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    #breadcrumbs ul li{
+        padding-left: 5px;
+        display: inline-block;
+    }
+
+    #breadcrumbs ul li a{
+        color: var(--main-link-color);
+    }
+
+    #breadcrumbs>ul li:after {
+        content: '/';
+        margin-left: 0.55rem;
+    }
+
+    #breadcrumbs>ul li:last-child:after{
+        content: '';
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
   
 

@@ -35,14 +35,14 @@
                     <li><a href="index.html">Start</a></li>
                     <li><a href="minasidor.html">Mina sidor</a></li>
                     <li><a href="minaresor.html">Mina resor</a></li>
-                    <li>Kommande resor</li>
+                    <li>Återkommande resor</li>
                 </ul>
             </div>
             
             <div style="margin: 0 auto; max-width: 650px;">
                 
-                <h2>Din resa</h2>
-                <p>Nedan är din bokade resa. Vid avbeställning måste detta göras 1 timme innan bokad tid. </p>
+                <h2>Dina återkommande resor</h2>
+                <p>Nedan är dina bokade återkommande resor. Vid avbeställning måste detta göras 1 timme innan bokad tid. </p>
             </div>
             
                 <div id="summary">
@@ -53,7 +53,16 @@
                     c-5.333,6.34-14.797,7.156-21.135,1.824c-6.34-5.333-7.157-14.795-1.824-21.135l59.991-71.325V58.028c0-8.284,6.716-15,15-15
                     s15,6.716,15,15v174.976h0C248.004,236.536,246.757,239.956,244.484,242.659z"/>
                     </svg>
-                    <h3>Klockan <span id="time"></span> <span id="date"></span> </h3>
+                    <h3><span id="date"></span>, klockan <span id="time"></span></h3>
+                    <h3>
+                        <svg version="1.1" id="repeat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ viewBox="0 0 512 512" xml:space="preserve">
+<g>
+<g>
+    <path d="M256,0C114.842,0,0,114.842,0,256s114.842,256,256,256s256-114.842,256-256S397.158,0,256,0z M73.712,181.468
+        l97.424-58.455v39.724h241.02v86.387h-37.463v-48.924H171.135v39.725L73.712,181.468z M340.865,388.988v-39.724H104.073v-86.387
+        h37.463V311.8h199.328v-39.724l97.424,58.455L340.865,388.988z"/>
+                        </svg>Varje vecka</h3>
                     <svg version="1.1" id="car" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="10px" y="0px"
                     width="23.789px" height="23.789px" viewBox="0 0 431.789 431.789"
                     xml:space="preserve"><path d="M422.438,151.93H390.77c-2.412,0-4.73,0.932-6.471,2.6l-6.76,6.476c-11.395-26.366-27.742-52.439-49.822-79.432
@@ -85,15 +94,15 @@
                         C145.568,157.624,151.206,71.108,104.493,55.913z"/>
                     <path d="M326.472,43.9c-23.769,15.668-28.103,57.804-17.829,82.138c10.272,24.329,42.677,43.926,64.851,22.206
                         C426.569,123.303,380.149,8.516,326.472,43.9z"/></svg>
-                        <h3><span id="persons"></span>person(er)</h3><br>
-                        <h3>Resa med Taxi</h3>
+                        <h3><span id="persons"></span>person(er)</h3>
+                        <br>
                         <h3>Från:<span id="fromAdress"> </span></h3>
                         <h3>Till:<span id="toAdress"> </span></h3>
                         <h3>Extra tillval: <span id="extra"></span></h3>
                         <h3>Namn: Ashraf Hamadi</h3>
                         <h3>Telefon: <span id="phone"></span></h3>
                         <div id="buttons">
-                            <button onclick="confirmDelete()" class="default-button cancel" id="cancel">Avbeställ 
+                            <button onclick="confirmDelete()" class="default-button cancel" id="cancel">Avbryt 
                                 <svg id="accept" width="14px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><g data-name="checkmark-circle" ><rect width="24" height="24" opacity="0"/><path d="M9.71 11.29a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 16a1 1 0 0 0 .72-.34l7-8a1 1 0 0 0-1.5-1.32L12 13.54z"/><path d="M21 11a1 1 0 0 0-1 1 8 8 0 0 1-8 8A8 8 0 0 1 6.33 6.36 7.93 7.93 0 0 1 12 4a8.79 8.79 0 0 1 1.9.22 1 1 0 1 0 .47-1.94A10.54 10.54 0 0 0 12 2a10 10 0 0 0-7 17.09A9.93 9.93 0 0 0 12 22a10 10 0 0 0 10-10 1 1 0 0 0-1-1z"/></g></g></svg></button>
                             
                         </div>
@@ -112,8 +121,8 @@
                                    <path d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M12,19.66
                                        c-0.938,0-1.58-0.723-1.58-1.66c0-0.964,0.669-1.66,1.58-1.66c0.963,0,1.58,0.696,1.58,1.66C13.58,18.938,12.963,19.66,12,19.66z
                                         M12.622,13.321c-0.239,0.815-0.992,0.829-1.243,0c-0.289-0.956-1.316-4.585-1.316-6.942c0-3.11,3.891-3.125,3.891,0
-                                       C13.953,8.75,12.871,12.473,12.622,13.321z"/></svg> Vill du verkligen avbeställa
-                                       nedanstående resa
+                                       C13.953,8.75,12.871,12.473,12.622,13.321z"/></svg> Vill du verkligen avbryta din återkommande resa?
+                                       
                                        </p>
                             </div>
                             <p>Från: <span id="box-fromAdress" ></span></p>
@@ -121,7 +130,7 @@
                             <p>Klockan: <span id="box-time"></span></p>
                            
                             
-                            <a onclick="cancelBooking()" class="default-button order" href="ingaresor.html">Ja</a>
+                            <button onclick="cancelBooking()" class="default-button order">Ja</button>
                             <button style="float:right;" class="default-button cancel close">Nej</button>
                             </div>
                             

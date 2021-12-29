@@ -30,7 +30,17 @@
 
     <main>
         <div id="main-content">
+            <div id="breadcrumbs">
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="minasidor.html">Mina sidor</a></li>
+                    <li><a href="typavresa.html">Typ av resa</a> </li>
+                    <li>Enkelresa</li>
+                </ul>
+            </div>
             <form action="bekraftaresa.html">
+                <h1 id="heading">Boka enkelresa</h1>
+
                 <h2>Välj adress</h2>
                 <label for="fromAdress">Från adress</label>
                 <input id="fromAdress" type="text" required>
@@ -38,13 +48,21 @@
                 <label for="toAdress">Till adress</label>
                 <input id="toAdress" type="text" required>
 
+                <h2>Välj restid</h2>
+                
+                <label for="date">Datum</label>
+                <input type="date" name="date" id="date" required>
+                
+                <label for="time">Tid</label>
+                <input type="time" name="time" id="time" required>
+
                 <h2>Välj detaljer</h2>
 
                 <h3>Resenärer</h3>
                 
                 <p>Här kan du välja att lägga till detaljer mot extra konstnad</p>
                 
-                <label for="persons">Antal Personer</label>
+                <label for="persons">Antal medresenärer</label>
                 <input type="number" name="persons" id="persons" required>
                 
                 <label for="information">Information till föraren (max 54 tecken)</label>
@@ -56,19 +74,9 @@
                 <label>Tillval som kostar extra</label><br><br>
                 <input type="checkbox" name="options" id="option1">
                 <label for="option1">Sällskapsdjur</label><br>
-                <input type="checkbox" name="options" id="option2">
-                <label for="option2">Eget bruk</label><br>
                 <input type="checkbox" name="options" id="option3">
                 <label for="option3">Rullstolsanpassat</label>
-                
-                <h2>Välj restid</h2>
-                
-                <label for="date">Datum</label>
-                <input type="date" name="date" id="date" required>
-                
-                <label for="time">Tid</label>
-                <input type="time" name="time" id="time" required>
-
+ 
                 <button style="margin: 0;" class="default-button" type="submit" onclick="getFormData()">Gå vidare 
                     <svg style="vertical-align:text-bottom; fill:none; width:30px" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></button>
           

@@ -30,9 +30,16 @@
 
     <main>
         <div id="main-content">
+            <div id="breadcrumbs">
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="minasidor.html">Mina sidor</a></li>
+                    <li>Mina resor</li>
+                </ul>
+            </div>
             <a onclick="checkIfRideBooked()" class="default-button large" href="#">Kommande resor</a>
             <a class="default-button large" href="tidigareresor.html">Tidigare resor</a>
-            <a class="default-button large" href="aterkommanderesa.html">Återkommande resor</a>
+            <a onclick="checkIfRepeatedRideBooked()" class="default-button large" href="#">Återkommande resor</a>
             <a class="default-button large" href="sparadeadresser.html">Sparade adresser</a>
             <div id="demo"></div>
 

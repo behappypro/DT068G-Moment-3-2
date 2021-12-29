@@ -45,7 +45,6 @@ window.onerror = function(msg, url, linenumber) {
     const formTime = document.getElementById('time');
     const extra = document.getElementById('extra');
     const animal = document.getElementById('option1');
-    const personalUse = document.getElementById('option2');
     const wheelchair = document.getElementById('option3');
   }
    function getFormData(){
@@ -61,9 +60,7 @@ window.onerror = function(msg, url, linenumber) {
     if (document.getElementById('option1').checked) {
         data.animal = "Sällskapsdjur";
       }
-    if(document.getElementById('option2').checked){
-        data.personalUse = "Eget bruk";
-      }
+
       
     if(document.getElementById('option3').checked){
         data.wheelchair = "Rullstolsanpassat";
@@ -96,18 +93,24 @@ window.onerror = function(msg, url, linenumber) {
 
     var dayOfWeek = S - (7 * Math.floor(S / 7));
 
-    time.innerHTML = data.time + ',';
+   
     persons.innerHTML = data.persons + ' ';
-    date.innerHTML = daysArray[dayOfWeek+1] + ' ' + day + ' ' +monthArray[month-1] + ' ' + originalYear;
+    if(window.location.href.indexOf("aterkommanderesor") != -1){
+      date.innerHTML = daysArray[dayOfWeek+1]+'ar';
+      time.innerHTML = data.time;
+    }
+
+    else{
+      date.innerHTML = daysArray[dayOfWeek+1] + ' ' + day + ' ' +monthArray[month-1] + ' ' + originalYear;
+      time.innerHTML = data.time + ',';
+    }
+
+    
     phone.innerHTML = data.phone;
     fromAdress.innerHTML = ' '+ data.fromAdress;
     toAdress.innerHTML = ' '+ data.toAdress;
     if(data.animal!=undefined){
       extra.innerHTML += data.animal + ', ';
-    }
-
-    if(data.personalUse!=undefined){
-      extra.innerHTML += data.personalUse + ', ';
     }
 
     if(data.wheelchair!=undefined){
@@ -141,11 +144,12 @@ window.onerror = function(msg, url, linenumber) {
       modal.style.display = "block";
     }
 
-    boxFromAdress.innerHTML = data.fromAdress;
-    boxToAdress.innerHTML = data.toAdress;
-    boxTime.innerHTML = data.time;
+    if(boxFromAdress!=null){
+      boxFromAdress.innerHTML = data.fromAdress;
+      boxToAdress.innerHTML = data.toAdress;
+      boxTime.innerHTML = data.time;
+    }
 
-    
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
@@ -163,16 +167,80 @@ window.onerror = function(msg, url, linenumber) {
     }
    }
 
+   function showModal(){
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("order");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var closeButton = document.getElementsByClassName("close")[1];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    closeButton.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+   }
+
    function checkIfRideBooked(){
      if(localStorage.getItem('formData')!=null){
       window.location.replace("http://127.0.0.1:5500/kommanderesor.html");
      }
      else{
       window.location.replace("http://127.0.0.1:5500/ingaresor.html");
-     }
+     } 
    }
 
+   function checkIfRepeatedRideBooked(){
+    if(localStorage.getItem('repeatedBooking')!=null){
+     window.location.replace("http://127.0.0.1:5500/aterkommanderesor.html");
+    }
+    else{
+     window.location.replace("http://127.0.0.1:5500/ingaaterkommanderesor.html");
+    } 
+  }
 
+   function reBook(){
+    const fromAdress = document.getElementById('fromAdress');
+    const toAdress = document.getElementById('toAdress');
+    const persons = document.getElementById('persons');
+    const phone = document.getElementById('phone');
+    const date = document.getElementById('date');
+    const formTime = document.getElementById('time');
+    const information = document.getElementById('information');
+    const wheelchair = document.getElementById('extra');
+
+    data.date = date.value;
+    data.time = formTime.value;
+    data.fromAdress = fromAdress.textContent ;
+    data.toAdress = toAdress.textContent ;
+    data.persons = persons.value;
+    data.phone = phone.textContent;
+    data.information = information.value;
+    data.wheelchair = wheelchair.textContent ;
+
+    localStorage.setItem('repeatedBooking', JSON.stringify(data));
+   }
+
+/*
    function getBreadcrumbs() {
     const here = location.href.split('/').slice(3);
     // console.log(here)
@@ -195,6 +263,6 @@ window.onerror = function(msg, url, linenumber) {
 }
 
 document.getElementById("demo").innerHTML = getBreadcrumbs();
-
+*/
 
 
