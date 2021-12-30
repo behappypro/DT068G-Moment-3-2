@@ -31,7 +31,7 @@
    <main>
       <div id="main-content">
          <div style="margin: 0 auto; max-width: 650px;">
-            <h2>Din resa</h2>
+            <h2>Din återkommande resa</h2>
             <p>Kontrollera dina uppgifter nedan och 
                bekräfta beställning
             </p>
@@ -44,7 +44,18 @@
                   c-5.333,6.34-14.797,7.156-21.135,1.824c-6.34-5.333-7.157-14.795-1.824-21.135l59.991-71.325V58.028c0-8.284,6.716-15,15-15
                   s15,6.716,15,15v174.976h0C248.004,236.536,246.757,239.956,244.484,242.659z"/>
             </svg>
-            <h3>Klockan <span id="time"></span>, <span id="date"></span> </h3>
+            <h3><span id="date"></span>, klockan <span id="time"></span></h3>
+            <h3>
+                <svg version="1.1" id="repeat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                    <g>
+                    <path d="M256,0C114.842,0,0,114.842,0,256s114.842,256,256,256s256-114.842,256-256S397.158,0,256,0z M73.712,181.468
+                        l97.424-58.455v39.724h241.02v86.387h-37.463v-48.924H171.135v39.725L73.712,181.468z M340.865,388.988v-39.724H104.073v-86.387
+                        h37.463V311.8h199.328v-39.724l97.424,58.455L340.865,388.988z"/>
+                </svg>
+                <span id="repeatTransport"></span>
+            </h3>
             <svg version="1.1" id="car" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="10px" y="0px"
                width="23.789px" height="23.789px" viewBox="0 0 431.789 431.789"
                xml:space="preserve">

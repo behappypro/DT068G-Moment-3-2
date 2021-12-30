@@ -39,7 +39,7 @@
                 </ul>
             </div>
             
-            <form action="bekraftaresa.html">
+            <form action="bekraftaaterkommanderesa.html">
                 <h1 id="heading">Boka återkommande resa</h1>
                 <h2>Välj adress</h2>
                 <label for="fromAdress">Från adress</label>
@@ -48,14 +48,31 @@
                 <label for="toAdress">Till adress</label>
                 <input id="toAdress" type="text" required>
 
+                <h2>Välj restid</h2>
+                
+                <label for="date">Datum</label>
+                <input type="date" name="date" id="date" required>
+                
+                <label for="time">Tid</label>
+                <input type="time" name="time" id="time" required>
+
+                <label for="repeatTransport">Intervall</label><br>
+                <select id="repeatTransport" name="repeatTransport">
+                    <option value="Varje dag">Varje dag</option>
+                    <option value="Varje vardag">Varje vardag</option>
+                    <option value="Varje vecka">Varje vecka</option>
+                    <option value="Varannan vecka">Varannan vecka</option>
+                    <option value="En gång i månaden">En gång i månaden</option>
+                  </select>
+
                 <h2>Välj detaljer</h2>
 
                 <h3>Resenärer</h3>
                 
                 <p>Här kan du välja att lägga till detaljer mot extra konstnad</p>
                 
-                <label for="persons">Antal Personer</label>
-                <input type="number" name="persons" id="persons" required>
+                <label for="persons">Antal resenärer (Tillägg av fler resenärer kostar extra)</label>
+                <input type="number" name="persons" id="persons" value="1">
                 
                 <label for="information">Information till föraren (max 54 tecken)</label>
                 <textarea name="information" id="information" cols="23" rows="2"></textarea>
@@ -66,20 +83,10 @@
                 <label>Tillval som kostar extra</label><br><br>
                 <input type="checkbox" name="options" id="option1">
                 <label for="option1">Sällskapsdjur</label><br>
-                <input type="checkbox" name="options" id="option2">
-                <label for="option2">Eget bruk</label><br>
                 <input type="checkbox" name="options" id="option3">
                 <label for="option3">Rullstolsanpassat</label>
-                
-                <h2>Välj restid</h2>
-                
-                <label for="date">Datum</label>
-                <input type="date" name="date" id="date" required>
-                
-                <label for="time">Tid</label>
-                <input type="time" name="time" id="time" required>
 
-                <button style="margin: 0;" class="default-button" type="submit" onclick="getFormData()">Gå vidare 
+                <button style="margin: 0;" class="default-button" onclick="getFormData()" type="submit">Gå vidare 
                     <svg style="vertical-align:text-bottom; fill:none; width:30px" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></button>
           
             </form>
