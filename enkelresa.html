@@ -42,11 +42,11 @@
                 <h1 id="heading">Boka enkelresa</h1>
 
                 <h2>Välj adress</h2>
+                <datalist id="adressList"></datalist>
                 <label for="fromAdress">Från adress</label>
-                <input id="fromAdress" type="text" required>
-
+                <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
                 <label for="toAdress">Till adress</label>
-                <input id="toAdress" type="text" required>
+                <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
 
                 <h2>Välj restid</h2>
                 
@@ -104,5 +104,6 @@
         </div>
     </footer>   
     <script src="./js/main.js"></script>
+    <script>window.addEventListener('load', addressList())</script>
 </body>
 </html>

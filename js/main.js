@@ -5,6 +5,7 @@
 var faq = document.getElementsByClassName("faq");
 let daysArray = ["Lördag","Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
 let monthArray = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December","Januari","Februari"];
+let savedAddressArray=[];
 var data = {};
 
 for (var i = 0; i < faq.length; i++) {
@@ -18,7 +19,7 @@ for (var i = 0; i < faq.length; i++) {
       } 
     });
   }
-/*
+
   window.addEventListener("error", handleError, true);
 
   function handleError(evt) {
@@ -33,7 +34,7 @@ window.onerror = function(msg, url, linenumber) {
   alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
   return true;
 }
-*/
+
   function getElements(){
     const fromAdress = document.getElementById('fromAdress');
     const toAdress = document.getElementById('toAdress');
@@ -45,8 +46,7 @@ window.onerror = function(msg, url, linenumber) {
     const extra = document.getElementById('extra');
     const animal = document.getElementById('option1');
     const wheelchair = document.getElementById('option3');
-    var repeatTransport =  document.getElementById('repeatTransport');
-    
+    const repeatTransport =  document.getElementById('repeatTransport'); 
    }
 
    function getFormData(){
@@ -56,8 +56,11 @@ window.onerror = function(msg, url, linenumber) {
     data.persons = persons.value;
     data.information = information.value;
     data.phone = phone.value;
-    data.date = date.value;
+    
     data.time = time.value;
+    
+    
+    
     if (typeof(repeatTransport) != 'undefined' && repeatTransport != null)
     {
       data.repeatTransport = repeatTransport.value;
@@ -71,7 +74,20 @@ window.onerror = function(msg, url, linenumber) {
         data.wheelchair = "Rullstolsanpassat";
       }
       if(window.location.href.indexOf("aterkommanderesa") != -1){
+        var days = '';
+        for (var i = 0; i < 6; i++) {
+          var element = document.getElementById('day' + i)
         
+          if (element.checked) {
+            var day = element.value;
+            days += ' ' + day;
+            data.date = days;
+          }
+        }
+        
+      }
+      else{
+        data.date = date.value;
       }
     localStorage.setItem('unAcceptedBooking', JSON.stringify(data));
    }
@@ -114,7 +130,7 @@ window.onerror = function(msg, url, linenumber) {
     persons.innerHTML = data.persons + ' ';
 
     if(window.location.href.indexOf("bekraftaaterkommanderesa")!= -1){
-      date.innerHTML = daysArray[dayOfWeek+1]+'ar';
+      date.innerHTML = data.date+"ar";
       time.innerHTML = data.time;
       repeatTransport.innerHTML = data.repeatTransport;
     }
@@ -258,21 +274,33 @@ window.onerror = function(msg, url, linenumber) {
     // Get the modal
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("order");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
+    var closeButton = document.getElementsByClassName("addButton")[0];
 
     // When the user clicks the button, open the modal 
-    btn.onclick = function() {
+ 
       modal.style.display = "block";
-      countDown();
-    }
+      if(window.location.href.indexOf("bekraftaresa") != -1 || 
+      window.location.href.indexOf("bekraftaaterkommanderesa") != -1){
+        countDown(); 
+      }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
+    }
+
+    closeButton.onclick = function() {
+      if(window.location.href.indexOf("sparadeadresser") != -1){
+        if(document.getElementById('newaddress').value > ''){
+          addAddress();
+          modal.style.display = "none";
+        }
+        
+      }
+      
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -343,3 +371,144 @@ window.onerror = function(msg, url, linenumber) {
       timeleft -= 1;
     }, 1000);
    }
+
+   function showDays(){
+
+    var showDays =
+    `<input type="checkbox" id="day0" value="Måndag" name="monday">
+    <label for="day0">Måndag</label><br>
+    <input type="checkbox" id="day1" value="Tisdag" name="tuesday">
+    <label for="day1">Tisdag</label><br>
+    <input type="checkbox" id="day2" value="Onsdag" name="wednesday">
+    <label for="day2">Onsdag</label><br>
+    <input type="checkbox" id="day3" value="Torsdag" name="thursday">
+    <label for="day3">Torsdag</label><br>
+    <input type="checkbox" id="day4" value="Fredag" name="friday">
+    <label for="day4">Fredag</label><br>
+    <input type="checkbox" id="day5" value="Lördag" name="saturday">
+    <label for="day5">Lördag</label><br>
+    <input type="checkbox" id="day6" value="Söndag" name="sunday">
+    <label for="day6">Söndag</label>`;
+
+    var showWeeks =`<label for="startweek">Startvecka</label>
+    <input type="week" name="week" id="startweek">
+    <label for="endweek">Slutvecka</label>
+    <input type="week" name="week" id="endweek">`;
+
+    var showMonths = `<label for="startmonth">Startmånad</label>
+    <input type="month" name="month" id="startmonth">
+    <label for="endmonth">Slutmånad</label>
+    <input type="month" name="endmonth" id="endmonth">`;
+
+    switch(document.getElementById('repeatTransport').value){
+      case "Valfria-dagar":
+        document.getElementById('days').innerHTML = showDays;
+        document.getElementById('weeks').innerHTML = showWeeks;
+        document.getElementById('days').style.display="block";
+        document.getElementById('months').innerHTML = "";
+        break;
+
+      case "Varje-vardag":
+        document.getElementById("day0").checked = true;
+        document.getElementById("day1").checked = true;
+        document.getElementById("day2").checked = true;
+        document.getElementById("day3").checked = true;
+        document.getElementById("day4").checked = true;
+        document.getElementById('weeks').innerHTML = showWeeks;
+        document.getElementById('days').style.display="none";
+        break;
+
+      case "Varje-vecka":
+        document.getElementById('days').innerHTML = showDays;
+        document.getElementById('weeks').innerHTML = showWeeks;
+        document.getElementById('days').style.display="block";
+        document.getElementById('months').innerHTML = "";
+        break;
+
+      case "Varannan-vecka":
+        document.getElementById('days').innerHTML = showDays;
+        document.getElementById('weeks').innerHTML = showWeeks;
+        document.getElementById('days').style.display="block";
+        document.getElementById('months').innerHTML = "";
+        break;
+
+      case "En-gång-i-månaden":
+        document.getElementById('days').innerHTML = showDays;
+        document.getElementById('days').style.display="block";
+        document.getElementById('months').innerHTML = showMonths;
+        document.getElementById('weeks').innerHTML = "";
+        break;
+      
+      default:
+        document.getElementById('days').innerHTML = showDays;
+        document.getElementById('weeks').innerHTML = showWeeks;
+        document.getElementById('days').style.display="block";
+        document.getElementById('months').innerHTML = "";
+
+    }
+  }
+
+  function showAddress(){
+    document.getElementById("saved-addresses").innerHTML = "";
+    document.getElementById("error-msg").innerHTML="";
+    if(localStorage.getItem('savedAddresses')!=null){
+      var addresses = JSON.parse(localStorage.getItem('savedAddresses'));
+      for(i=0;i<=4;i++){
+        if(addresses[i]!=undefined){
+          var p = document.createElement("p");
+          var hr = document.createElement("hr");
+          var remove = document.createElement("BUTTON");
+          p.innerHTML = [i+1] + '. ' + addresses[i];
+          p.className = "addresses";
+          remove.innerHTML = "Radera";
+          remove.addEventListener("click",removeAddress, false);
+          remove.id = i;
+          remove.className = "remove-button";
+          document.getElementById("saved-addresses").appendChild(p); 
+          document.getElementById("saved-addresses").appendChild(remove);
+          document.getElementById("saved-addresses").appendChild(hr); 
+        }   
+      }  
+    }
+  }
+
+  function addAddress(){
+    var newAddress = document.getElementById('newaddress').value;
+
+    if(localStorage.getItem('savedAddresses')==null){
+      localStorage.setItem('savedAddresses','[]');
+    }
+
+    var oldAddresses = JSON.parse(localStorage.getItem('savedAddresses'));
+
+    if(oldAddresses.length<5){
+      oldAddresses.push(newAddress);
+      localStorage.setItem('savedAddresses',JSON.stringify(oldAddresses));
+      showAddress();
+      document.getElementById('newaddress').value="";
+    }
+
+    else{
+      document.getElementById("error-msg").innerHTML="Max antal adresser sparade";
+    }
+    
+  }
+
+  function removeAddress(e){
+    var localAddresses = JSON.parse(localStorage.getItem('savedAddresses'));
+    localAddresses.splice(e.currentTarget.id, 1);
+    localStorage.setItem('savedAddresses',JSON.stringify(localAddresses));
+    showAddress();
+  }
+
+  function addressList(){
+    var addresses = JSON.parse(localStorage.getItem('savedAddresses'));
+    var dl = document.getElementById('adressList');
+    for (i=0; i < addresses.length; i += 1) {
+      var option = document.createElement('option');
+      option.value = addresses[i];
+      dl.appendChild(option);
+    }      
+  }
+    
+  

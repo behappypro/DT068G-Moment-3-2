@@ -42,28 +42,53 @@
             <form action="bekraftaaterkommanderesa.html">
                 <h1 id="heading">Boka återkommande resa</h1>
                 <h2>Välj adress</h2>
-                <label for="fromAdress">Från adress</label>
-                <input id="fromAdress" type="text" required>
-
-                <label for="toAdress">Till adress</label>
-                <input id="toAdress" type="text" required>
-
+                    <datalist id="adressList"></datalist>
+                    <label for="fromAdress">Från adress</label>
+                    <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
+                    <label for="toAdress">Till adress</label>
+                    <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
                 <h2>Välj restid</h2>
+
+                <label for="repeatTransport">Intervall</label><br>
+                <select id="repeatTransport" name="repeatTransport" onChange="showDays()">
+                    <option value="Valfria-dagar">Valfria dagar</option>
+                    <option value="Varje-vardag" selected>Varje vardag</option>
+                    <option value="Varje-vecka">Varje vecka</option>
+                    <option value="Varannan-vecka">Varannan vecka</option>
+                    <option value="En-gång-i-månaden">En gång i månaden</option>
+                </select>
+                <div id="weeks">
+                    <label for="startweek">Startvecka</label>
+                    <input type="week" name="week" id="startweek">
+                    <label for="endweek">Slutvecka</label>
+                    <input type="week" name="week" id="endweek">
+                </div>
+
+                <div id="months">
+                    
+                </div>
                 
-                <label for="date">Datum</label>
-                <input type="date" name="date" id="date" required>
+                
+                <div id="days" style="display: none;">
+                <input type="checkbox" id="day0" value="Måndag" checked name="monday">
+                <label for="day0">Måndag</label><br>
+                <input type="checkbox" id="day1" value="Tisdag" checked name="tuesday">
+                <label for="day1">Tisdag</label><br>
+                <input type="checkbox" id="day2" value="Onsdag" checked  name="wednesday">
+                <label for="day2">Onsdag</label><br>
+                <input type="checkbox" id="day3" value="Torsdag" checked  name="thursday">
+                <label for="day3">Torsdag</label><br>
+                <input type="checkbox" id="day4" value="Fredag" checked name="friday">
+                <label for="day4">Fredag</label><br>
+                <input type="checkbox" id="day5" value="Lördag" name="saturday">
+                <label for="day5">Lördag</label><br>
+                <input type="checkbox" id="day6" value="Söndag" name="sunday">
+                <label for="day6">Söndag</label>
+                </div>
+                <br>
                 
                 <label for="time">Tid</label>
                 <input type="time" name="time" id="time" required>
-
-                <label for="repeatTransport">Intervall</label><br>
-                <select id="repeatTransport" name="repeatTransport">
-                    <option value="Varje dag">Varje dag</option>
-                    <option value="Varje vardag">Varje vardag</option>
-                    <option value="Varje vecka">Varje vecka</option>
-                    <option value="Varannan vecka">Varannan vecka</option>
-                    <option value="En gång i månaden">En gång i månaden</option>
-                  </select>
 
                 <h2>Välj detaljer</h2>
 
@@ -113,5 +138,6 @@
         </div>
     </footer>   
     <script src="./js/main.js"></script>
+    <script>window.addEventListener('load', addressList())</script>
 </body>
 </html>
