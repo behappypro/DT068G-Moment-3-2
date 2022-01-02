@@ -127,7 +127,7 @@ window.onerror = function(msg, url, linenumber) {
 
     var dayOfWeek = S - (7 * Math.floor(S / 7));
    
-    persons.innerHTML = data.persons + ' ';
+    persons.innerHTML = data.persons;
 
     if(window.location.href.indexOf("bekraftaaterkommanderesa")!= -1){
       date.innerHTML = data.date+"ar";
@@ -141,7 +141,7 @@ window.onerror = function(msg, url, linenumber) {
       repeatTransport.innerHTML = data.repeatTransport;
     }
 
-    else if(window.location.href.indexOf("bekraftaresa")!= -1 || window.location.href.indexOf("kommanderesor") != -1){
+    else if(window.location.href.indexOf("bekraftaresa")!= -1){
       date.innerHTML = daysArray[dayOfWeek+1] + ' ' + day + ' ' + monthArray[month-1] + ' ' +originalYear;
       time.innerHTML = data.time;
     }
@@ -215,18 +215,18 @@ window.onerror = function(msg, url, linenumber) {
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     var closeButton = document.getElementsByClassName("close")[1];
-    
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
 
-    if(boxFromAdress!=null){
+    modal.style.display = "block";
+   
+
+    if(boxRepeat!=undefined){
+      boxRepeat.innerHTML = data.repeatTransport;
+    }
+  
       boxFromAdress.innerHTML = data.fromAdress;
       boxToAdress.innerHTML = data.toAdress;
       boxTime.innerHTML = data.time;
-      boxRepeat.innerHTML = data.repeatTransport;
-    }
+    
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
@@ -254,6 +254,19 @@ window.onerror = function(msg, url, linenumber) {
     data.phone = phone.textContent;
     data.date = date.textContent;
     data.time = time.textContent;
+
+    if(extra.textContent=="Sällskapsdjur"){
+      data.animal = "Sällskapsdjur";
+    }
+
+    else if(extra.textContent=="Rullstolsanpassat"){
+      data.wheelchair = "Rullstolsanpassat";
+    }
+
+    else if(extra.textContent=="Sällskapsdjur, Rullstolsanpassat"){
+      data.animal = "Sällskapsdjur";
+      data.wheelchair = "Rullstolsanpassat";
+    }
     
     if (typeof(repeatTransport) != 'undefined' && repeatTransport != null)
     {
@@ -298,9 +311,17 @@ window.onerror = function(msg, url, linenumber) {
           addAddress();
           modal.style.display = "none";
         }
-        
       }
-      
+      if(window.location.href.indexOf("bekraftaresa") != -1){
+        if(JSON.parse(localStorage.getItem('regularBooking')!=null)){
+          localStorage.removeItem('regularBooking');
+        }
+        confirmBooking();
+      } 
+    
+      if(JSON.parse(localStorage.getItem('unAcceptedBooking')!=null)){
+        localStorage.removeItem('unAcceptedBooking');
+      }  
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -311,7 +332,7 @@ window.onerror = function(msg, url, linenumber) {
     }
     
    }
-
+ 
    function checkIfRideBooked(){
      if(localStorage.getItem('regularBooking')!=null){
       window.location.replace("http://127.0.0.1:5500/kommanderesor.html");
@@ -510,5 +531,66 @@ window.onerror = function(msg, url, linenumber) {
       dl.appendChild(option);
     }      
   }
+
+  function editBooking(){
+    let monthArray = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
+
+    if(JSON.parse(localStorage.getItem('unAcceptedBooking'))!=null || JSON.parse(localStorage.getItem('regularBooking'))!=null){
+    if(JSON.parse(localStorage.getItem('unAcceptedBooking'))!=null){
+      var data = JSON.parse(localStorage.getItem('unAcceptedBooking'));
+      document.getElementById("date").value = data.date;
+    } 
+
+    else if(JSON.parse(localStorage.getItem('regularBooking'))!=null){
+    
+      var data = JSON.parse(localStorage.getItem('regularBooking'));
+      var splitDate = data.date;
+      const dateArray = splitDate.split(' ');
+      let year = dateArray[3];
+      let month = dateArray[2];
+      let day = parseInt(dateArray[1]);
+
+      if(day<10){
+        day = "0"+day;
+      }
+
+      for(var i=0;i<monthArray.length;i++){
+        if(month == monthArray[i]){
+          month = i+1;
+          if(month<10){
+            month = "0"+month;
+          }
+        }
+      }
+
+      var newDate = year + '-' + month + '-'+ day;
+
+      document.getElementById("date").value = newDate;
+    }
+      document.getElementById("fromAdress").value = data.fromAdress;
+      document.getElementById("toAdress").value = data.toAdress;
+      document.getElementById("time").value = data.time;
+      document.getElementById("persons").value = data.persons;
+      if(data.information>""){
+        document.getElementById("information").value = data.information;
+      }
+      document.getElementById("phone").value = data.phone;
+      console.log(data.animal);
+      if(data.animal>""&&data.animal!=undefined){
+        document.getElementById("option1").checked = true;;
+      }
+      if(data.wheelchair>""&&data.wheelchair!=undefined){
+        document.getElementById("option3").checked = true;;
+      }
+    }
+    
+  }
+   
+
+      
+    
+ 
+    
+  
     
   

@@ -30,6 +30,10 @@ a{
     line-height: 1.5em;
 }
 
+button {
+    cursor: pointer;
+}
+
 #heading{
     font-size: 2.7rem;
 
@@ -358,27 +362,34 @@ input,textarea,select{
 
 #buttons{
     max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buttons a{
+    margin: 0;
 }
 
 .order{
     margin: 0;
     background-color: #1f5231;
     display: inline-block;
-    width: 40%;
-    margin-right: 10%;
+    width: 30%;
+    
 }
 
 .change{
-    background-color: #C87E3D;
+    background-color: #af5302;
     display: inline-block;
-    width: 40%;
+    width: 30%;
 }
 
 .cancel{
     margin: 0;
     background-color: #8F2626;
     display: inline-block;
-    width: 40%;
+    width: 30%;
     color: #fff !important;
 }
 
