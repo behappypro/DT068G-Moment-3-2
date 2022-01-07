@@ -404,7 +404,7 @@ footer{
 }
 
 #footer-container{
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
@@ -600,6 +600,202 @@ footer section a{
         color: red;
         text-align: center;
         font-weight: 600;
+    }
+
+    .nav-desc{
+        display: none;
+    }
+
+    button.ham {
+        display: none;
+    }
+
+    /*Start nav*/
+   
+
+    /*End nav*/
+
+    /*Start Media Query*/
+    @media screen and (max-width: 510px) {
+        #header-desc h1{
+            font-size: 12vmin;
+        }
+
+        #header-desc p,.flex-section a,.faq {
+            font-size: 5vmin;
+        }
+
+        .faq {
+            font-size: 4.5vmin;
+        }
+
+        h1{
+            font-size: 2.8rem;
+        }
+
+        h2{
+            font-size: 1.5rem;
+        }
+
+        h3{
+            font-size: 1.3rem;
+        }
+
+        .limited-p{
+            padding: 20px;
+        }
+        main{
+            padding: 20px;
+        }
+        input, textarea, select{
+            width: 100%;
+        }
+
+        #buttons{
+            flex-direction: column;
+            align-items: unset;
+        }
+
+        .order,.change,.cancel{
+            margin-bottom: 20px !important;
+            width: 100%;
+        }
+
+        #buttons .default-button{
+            max-width: unset;
+        }
+
+        #heading{
+            font-size: 2.5rem;
+        }
+
+        #footer-container{
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .ham {
+            position: relative;
+            /* keep the hamburger button above everything */
+            z-index: 100;
+            top: 1rem;
+            right: 1rem;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            float: right;
+          }
+        
+          button.ham {
+            background: none;
+            color: #fff;
+            border: unset;
+            font-size: 40px;
+            
+        }
+          
+          .xIcon {
+            display: none;
+            color:white;
+          }
+          
+          .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            color: white;
+            transform: translateY(-100%);
+            transition: transform .8s;
+            list-style-type: none;
+            padding-top: 4rem;
+            margin: auto 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--main-bg-color);
+            z-index: 10;
+        
+          }
+          
+          .showMenu {
+            transform: translateY(0);
+          }
+          
+          .menu-item {
+            display: block;
+          color: white;
+          text-decoration: none;
+          font-size: 4vmax;
+          text-transform: uppercase;
+          font-weight: 900;
+          line-height: 1;
+          padding: 0;
+        }
+        
+        .menuIcon,.material-icons{
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .nav-desc{
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.5rem 0 2rem 0;
+        }
+
+        .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+            content: "\f0c9";
+        }
+
+        nav ul{
+            display: block;
+            height: unset;
+        }
+
+        .nav-desc{
+            display: block;
+        }
+
+        button.ham {
+            display: block;
+        }
+
+        section{
+            margin: unset;
+        }
+
+        .modal-body a,.modal-body button {
+            width: 45% !important;
+        }
+
+        .modal-body{
+            padding: 0 20px;
+        }
+
+    }
+
+    @media screen and (max-width: 400px){
+        #flex-container{
+            flex-direction: column;
+        }
+
+        .flex-section{
+            max-width: 200px;
+            margin: 10px;
+        }
+
+        .faq:after{
+            margin-right: -20px;
+        }
     }
 
     

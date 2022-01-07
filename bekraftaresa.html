@@ -5,19 +5,34 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <title>STHLM Färdtjänst</title>
    </head>
    <body">
    <header>
       <nav>
+         <button class="ham">
+             <span class="menuIcon"><i class="fa fa-bars"></i>
+             </span>
+             <span class="xIcon">
+               X
+             </span>
+         </button>
+
          <a id="logo" href="index.html">STHLM Färdtjänst</a>
+         <div class="menu">
          <ul>
-            <li><a href="index.html">Start</a></li>
-            <li><a href="#">Färdtjänstresor</a></li>
-            <li><a href="minasidor.html">Mina sidor</a></li>
-            <li><a href="kundservice.html">Kundservice</a></li>
+             <li><a class="menu-item" href="index.html">Start</a></li>
+             <li><span class="nav-desc">Startsidan</span></li>
+             <li><a class="menu-item" href="#">Färdtjänstresor</a></li>
+             <li><span class="nav-desc">Startsidan</span></li>
+             <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+             <li><span class="nav-desc">Bokning av resor</span></li>
+             <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+             <li><span class="nav-desc">Kontakta oss</span></li>
          </ul>
-      </nav>
+     </div>
+     </nav>
       <div id="header-container">
          <div id="header-desc">
             <h1>SHLM Färdtjänst</h1>
@@ -79,7 +94,7 @@
                <path d="M326.472,43.9c-23.769,15.668-28.103,57.804-17.829,82.138c10.272,24.329,42.677,43.926,64.851,22.206
                   C426.569,123.303,380.149,8.516,326.472,43.9z"/>
             </svg>
-            <h3><span id="persons"></span>person(er)</h3>
+            <h3><span id="persons"></span>&nbsp person(er)</h3>
             <br>
             <h3>Från:<span id="fromAdress"> </span></h3>
             <h3>Till:<span id="toAdress"> </span></h3>
