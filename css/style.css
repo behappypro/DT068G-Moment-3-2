@@ -19,6 +19,7 @@ h1{
 
 h2{
     font-size: 1.8rem;
+    clear: both;
 }
 p{
     font-size: 1.4rem;
@@ -63,7 +64,7 @@ svg{
     display: inline-block;
 }
 
-#clock,#car,#group,#repeat{
+#clock,#car,#group,#repeat,#weekIcon{
     float: left;
     fill: #000;
     width: 25px;
@@ -373,10 +374,9 @@ input,textarea,select{
 
 .order{
     margin: 0;
-    background-color: #1f5231;
+    background-color: #328329;
     display: inline-block;
-    width: 30%;
-    
+    width: 30%;    
 }
 
 .change{
@@ -511,6 +511,8 @@ footer section a{
     font-size: 2rem;
     font-weight: bold;
   }
+
+  
   
   .close:hover,
   .close:focus {
@@ -523,7 +525,7 @@ footer section a{
       padding: 2px 16px;
       max-width: 450px;
       margin: 0 auto;
-      padding: 40px 0;
+      padding: 20px 0;
     }
 
     #box{
@@ -616,7 +618,7 @@ footer section a{
     /*End nav*/
 
     /*Start Media Query*/
-    @media screen and (max-width: 510px) {
+    @media screen and (max-width: 522px) {
         #header-desc h1{
             font-size: 12vmin;
         }
@@ -673,7 +675,39 @@ footer section a{
             flex-direction: column;
             padding: 20px;
         }
+        section{
+            margin: unset;
+        }
 
+        .modal-body a,.modal-body button {
+            width: 45% !important;
+        }
+
+        .modal-body{
+            padding: 0 20px;
+        }
+
+        #exclamation_mark{
+            display: block;
+            margin: 0 auto;
+            float: none;
+        }
+
+        #box{
+            padding: unset;
+        }
+
+        #box p{
+            text-align: center;
+        }
+
+        .default-button{
+            max-width: 300px;
+        }
+
+    }
+
+    @media screen and (max-width: 780px) {
         .ham {
             position: relative;
             /* keep the hamburger button above everything */
@@ -709,7 +743,7 @@ footer section a{
             height: 100vh;
             color: white;
             transform: translateY(-100%);
-            transition: transform .8s;
+            /*transition: transform .8s;*/
             list-style-type: none;
             padding-top: 4rem;
             margin: auto 0;
@@ -741,7 +775,7 @@ footer section a{
             font-weight: 900;
             line-height: 1;
         }
-
+    
         .nav-desc{
             color: #fff;
             text-transform: uppercase;
@@ -751,36 +785,23 @@ footer section a{
             text-align: center;
             padding: 0.5rem 0 2rem 0;
         }
-
+    
         .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
             content: "\f0c9";
         }
-
+    
         nav ul{
             display: block;
             height: unset;
         }
-
+    
         .nav-desc{
             display: block;
         }
-
+    
         button.ham {
             display: block;
         }
-
-        section{
-            margin: unset;
-        }
-
-        .modal-body a,.modal-body button {
-            width: 45% !important;
-        }
-
-        .modal-body{
-            padding: 0 20px;
-        }
-
     }
 
     @media screen and (max-width: 400px){
@@ -796,11 +817,60 @@ footer section a{
         .faq:after{
             margin-right: -20px;
         }
+
     }
 
-    
+    .notification {
+        position: relative;
+      }
 
+      .notification .badge {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color:#333333;
+        color: white;
+        width: 41px;
+        height: 50px;
+      } 
 
+    .date {
+        float: left;
+        width: 46%;
+    }
+    .time {
+        float: right;
+        width: 42%;
+        margin-right: 10%;
+    }
 
-  
+    .date input,.time input{
+        width: 100%;
+    }
+
+    input#datepicker{
+        padding: 17px;
+    }
+
+    input#datepicker:hover{
+        cursor: pointer;
+    }
+
+    .litepicker .container__days .day-item.is-in-range{
+        background-color:var(--main-txt-color);
+        color: #fff;
+    }
+
+    .litepicker .container__days .day-item.is-start-date,.litepicker .container__days .day-item.is-end-date{
+        background-color: var(--main-btn-color);
+    }
+
+    .litepicker .container__days .day-item:hover {
+        box-shadow: inset 0 0 0 1px var(--main-btn-color);
+    }
+
+    .litepicker .container__days .day-item.is-today {
+        font-weight: 900;
+    }
 

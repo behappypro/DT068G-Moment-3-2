@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
     <title>STHLM Färdtjänst</title>
 </head>
@@ -54,21 +55,31 @@
                     <li>Tur och retur</li>
                 </ul>
             </div>
-            <form action="bekraftaresa.html">
-                <h2>Välj adress</h2>
-                <label for="fromAdress">Från adress</label>
-                <input id="fromAdress" type="text" required>
+            <form action="bekraftaturoreturresa.html">
+                <h1 id="heading">Boka tur och retur resa</h1>
 
+                <h2>Välj adress</h2>
+                <datalist id="adressList"></datalist>
+                <label for="fromAdress">Från adress</label>
+                <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
                 <label for="toAdress">Till adress</label>
-                <input id="toAdress" type="text" required>
+                <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
 
                 <h2>Välj restid</h2>
                 
-                <label for="date">Datum</label>
-                <input type="date" name="date" id="date" required>
+                <label for="datepicker">Datum Tur & Retur</label>
+                <input type="text" placeholder="Välj datum" autocomplete="off" required id="datepicker"/>
                 
-                <label for="time">Tid</label>
-                <input type="time" name="time" id="time" required>
+                <div class="date">
+                <label for="time1">Avgångstid Tur</label>
+                <input type="time" name="time" id="time1" required>
+                </div>
+                <div class="time">
+                <label for="time2">Avgångstid Retur</label>
+                <input type="time" name="time" id="time2" required>
+                </div>
+
+                
 
                 <h2>Välj detaljer</h2>
 
@@ -76,8 +87,8 @@
                 
                 <p>Här kan du välja att lägga till detaljer mot extra konstnad</p>
                 
-                <label for="persons">Antal medresenärer</label>
-                <input type="number" name="persons" id="persons" required>
+                <label for="persons">Antal resenärer (Tillägg av fler resenärer kostar extra)</label>
+                <input type="number" name="persons" id="persons" value="1">
                 
                 <label for="information">Information till föraren (max 54 tecken)</label>
                 <textarea name="information" id="information" cols="23" rows="2"></textarea>
@@ -118,5 +129,20 @@
         </div>
     </footer>   
     <script src="./js/main.js"></script>
+    <script>window.addEventListener('load', addressList())</script>
+    <!--Lånad kod från https://litepicker.com-->
+   <script>new Litepicker({
+    element: document.getElementById('datepicker'),
+    singleMode: false,
+    lang:"Sv",
+    tooltipText: {
+      one: 'dag',
+      other: 'dagar'
+    },
+    tooltipNumber: (totalDays) => {
+      return totalDays - 1;
+    }
+  })</script>
+
 </body>
 </html>

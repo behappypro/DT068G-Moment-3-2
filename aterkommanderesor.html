@@ -66,7 +66,7 @@
 						c-5.333,6.34-14.797,7.156-21.135,1.824c-6.34-5.333-7.157-14.795-1.824-21.135l59.991-71.325V58.028c0-8.284,6.716-15,15-15
 						s15,6.716,15,15v174.976h0C248.004,236.536,246.757,239.956,244.484,242.659z"/>
 				</svg>
-				<h3><span id="date"></span>, klockan <span id="time"></span></h3>
+				<h3><span id="date"></span> klockan <span id="time"></span></h3>
 				<h3>
 					<svg version="1.1" id="repeat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						viewBox="0 0 512 512" xml:space="preserve">
@@ -78,6 +78,8 @@
 					</svg>
 					<span id="repeatTransport"></span>
 				</h3>
+				<div id="week"></div>
+           		 <div id="month"></div>
 				<svg version="1.1" id="car" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="10px" y="0px"
 					width="23.789px" height="23.789px" viewBox="0 0 431.789 431.789"
 					xml:space="preserve">
@@ -112,7 +114,7 @@
 					<path d="M326.472,43.9c-23.769,15.668-28.103,57.804-17.829,82.138c10.272,24.329,42.677,43.926,64.851,22.206
 						C426.569,123.303,380.149,8.516,326.472,43.9z"/>
 				</svg>
-				<h3><span id="persons"></span>&nbsp person(er)</h3>
+				<h3><span id="persons"></span>&nbsp;person(er)</h3>
 				<br>
 				<h3>Från:<span id="fromAdress"> </span></h3>
 				<h3>Till:<span id="toAdress"> </span></h3>
@@ -132,7 +134,7 @@
 							</g>
 						</svg>
 					</button>
-					<a class="default-button change" href="editterabokning.html">Ändra <svg version="1.1" id="edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					<a class="default-button change" href="editeraaterkommanderesa.html">Ändra <svg version="1.1" id="edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
 						<path id="XMLID_24_" d="M75,180v60c0,8.284,6.716,15,15,15h60c3.978,0,7.793-1.581,10.606-4.394l164.999-165
 						   c5.858-5.858,5.858-15.355,0-21.213l-60-60C262.794,1.581,258.978,0,255,0s-7.794,1.581-10.606,4.394l-165,165
@@ -161,11 +163,11 @@
 									Vill du verkligen avbryta din återkommande resa?
 								</p>
 							</div>
-							<p>Från: <span id="box-fromAdress" ></span></p>
-							<p>Till: <span id="box-toAdress"></span></p>
-							<p>Klockan: <span id="box-time"></span></p>
-                            <p>Intervall: <span id="box-repeat"></span></p>
-							<button onclick="clearBooking()" class="default-button order">Ja</button>
+							<h3>Från: <span id="box-fromAdress" ></span></h3>
+							<h3>Till: <span id="box-toAdress"></span></h3>
+							<h3>Klockan: <span id="box-time"></span></h3>
+                            <h3>Intervall: <span id="box-repeat"></span></h3>
+							<button onclick="clearBooking()" style="font-size: 2rem;" class="default-button order">Ja</button>
 							<button style="float:right;" class="default-button cancel close">Nej</button>
 						</div>
 					</div>

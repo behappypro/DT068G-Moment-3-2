@@ -34,6 +34,21 @@ window.onerror = function(msg, url, linenumber) {
   alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
   return true;
 }
+/*JS för menyn*/
+var menu = document.querySelector(".menu")
+var ham = document.querySelector(".ham")
+var xIcon = document.querySelector(".xIcon")
+var menuIcon = document.querySelector(".menuIcon")
+var body = document.getElementsByTagName("BODY")[0];
+var menuLinks = document.querySelectorAll(".menu-item")
+
+ham.addEventListener("click", toggleMenu)
+
+menuLinks.forEach(
+  function (menuLink) {
+     menuLink.addEventListener("click", toggleMenu)
+  }
+)
 
   function getElements(){
     const fromAdress = document.getElementById('fromAdress');
@@ -46,10 +61,26 @@ window.onerror = function(msg, url, linenumber) {
     const extra = document.getElementById('extra');
     const animal = document.getElementById('option1');
     const wheelchair = document.getElementById('option3');
-    const repeatTransport =  document.getElementById('repeatTransport'); 
+    const repeatTransport = document.getElementById('repeatTransport'); 
+    
    }
 
    function getFormData(){
+     if(document.getElementById('startweek')!=null){
+      const startWeek = document.getElementById('startweek');
+      const endWeek = document.getElementById('endweek');
+      data.startWeek = startWeek.value;
+      data.endWeek = endWeek.value;
+      data.time = time.value;
+     }
+     else if(document.getElementById('startmonth')!=null){
+      const startMonth = document.getElementById('startmonth');
+      const endMonth = document.getElementById('endmonth');
+      data.startMonth = startMonth.value;
+      data.endMonth = endMonth.value;
+      data.time = time.value;
+     }
+
     getElements();
     data.fromAdress = fromAdress.value;
     data.toAdress = toAdress.value;
@@ -57,7 +88,6 @@ window.onerror = function(msg, url, linenumber) {
     data.information = information.value;
     data.phone = phone.value;
     
-    data.time = time.value;
     
     
     
@@ -75,64 +105,118 @@ window.onerror = function(msg, url, linenumber) {
       }
       if(window.location.href.indexOf("aterkommanderesa") != -1){
         var days = '';
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i <= 6; i++) {
           var element = document.getElementById('day' + i)
         
           if (element.checked) {
             var day = element.value;
-            days += ' ' + day;
+            days += ' ' + day + ',';
             data.date = days;
           }
         }
-        
+        localStorage.setItem('unAcceptedRepeatedBooking', JSON.stringify(data));
+      }
+      else if(window.location.href.indexOf("turoreturresa") != -1){
+        var date = document.getElementById('datepicker').value;
+        const dateArray = date.split(' - ');
+        data.fromDate = dateArray[0];
+        data.toDate=dateArray[1];
+        data.time1 = document.getElementById('time1').value;
+        data.time2 = document.getElementById('time2').value;
+        localStorage.setItem('unAcceptedTwoWayBooking', JSON.stringify(data));
       }
       else{
         data.date = date.value;
+        data.time = time.value;
+        localStorage.setItem('unAcceptedBooking', JSON.stringify(data));
       }
-    localStorage.setItem('unAcceptedBooking', JSON.stringify(data));
+    
    }
 
    function printData(){
     getElements();
+
     if(window.location.href.indexOf("bekraftaresa") != -1 ){
       var data = JSON.parse(localStorage.getItem('unAcceptedBooking'));
     }
-    else if(window.location.href.indexOf("bekraftaaterkommanderesa") != -1){
-      var data = JSON.parse(localStorage.getItem('unAcceptedBooking'));
+    else if(window.location.href.indexOf("bekraftaaterkommanderesa") != -1 ||
+    window.location.href.indexOf("aterkommanderesor") != -1){
+
+      if(window.location.href.indexOf("bekraftaaterkommanderesa") != -1){
+        var data = JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'));
+      }
+      else{
+        var data = JSON.parse(localStorage.getItem('repeatedBooking'));
+      }
+        if(data.startWeek != null){
+          var startWeek = data.startWeek;
+          const startWeekArray = startWeek.split('W');
+          var endWeek = data.endWeek;
+          const endWeekArray = endWeek.split('W');
+          document.getElementById('week').innerHTML=`<h3>
+          <svg width="16px" id="weekIcon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-calendar2-week-fill">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+          </svg>Vecka: `+startWeekArray[1]+'-'+endWeekArray[1];
+        }
+        else if(data.startMonth != null){
+          let monthArray = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
+
+          var startMonth = data.startMonth;
+          const startMonthArray = startMonth.split('-');
+          var endMonth = data.endMonth;
+          const endMonthArray = endMonth.split('-');
+          document.getElementById('month').innerHTML=`<h3>
+          <svg width="16px" id="weekIcon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-calendar2-week-fill">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+          </svg>`+monthArray[startMonthArray[1]-1]+'-'+monthArray[endMonthArray[1]-1];
+        }
     }
+    
     else if(window.location.href.indexOf("aterkommanderesor") != -1){
       var data = JSON.parse(localStorage.getItem('repeatedBooking'));
+
     }
     else{
       var data = JSON.parse(localStorage.getItem('regularBooking'));
     }
-    
-    var splitDate = data.date;
-    const dateArray = splitDate.split('-');
-    let year = dateArray[0];
-    let originalYear = year;
-    let month = parseInt(dateArray[1]);
-    let day = parseInt(dateArray[2]);
-    
 
-    if(month < 3){
-      month = month + 12;
-      year = year - 1;
+    if(window.location.href.indexOf("bekraftaturoreturresa") != -1 ){
+      var data = JSON.parse(localStorage.getItem('unAcceptedTwoWayBooking'));
     }
+    else{
+      var splitDate = data.date;
+      const dateArray = splitDate.split('-');
+      let year = dateArray[0];
+      let originalYear = year;
+      let month = parseInt(dateArray[1]);
+      let day = parseInt(dateArray[2]);
 
-    let partOfYear = Math.floor(year / 100);
-    let yearOfCentury = year % 100;
-
-    var S = Math.floor(2.6 * month - 5.39) + Math.floor(yearOfCentury / 4) + Math.floor(partOfYear / 4) + day + yearOfCentury - (2 * partOfYear);
-
-    var dayOfWeek = S - (7 * Math.floor(S / 7));
-   
-    persons.innerHTML = data.persons;
+      if(month < 3){
+        month = month + 12;
+        year = year - 1;
+      }
+  
+      let partOfYear = Math.floor(year / 100);
+      let yearOfCentury = year % 100;
+  
+      var S = Math.floor(2.6 * month - 5.39) + Math.floor(yearOfCentury / 4) + Math.floor(partOfYear / 4) + day + yearOfCentury - (2 * partOfYear);
+  
+      var dayOfWeek = S - (7 * Math.floor(S / 7));
+     
+      persons.innerHTML = data.persons;
+    
+    
 
     if(window.location.href.indexOf("bekraftaaterkommanderesa")!= -1){
-      date.innerHTML = data.date+"ar";
+      if(data.repeatTransport=="Varje-vardag"){
+        date.innerHTML = "Måndag-Fredag";
+      }
+      else{
+        date.innerHTML = data.date;
+      }
       time.innerHTML = data.time;
       repeatTransport.innerHTML = data.repeatTransport;
+      
     }
 
     else if(window.location.href.indexOf("aterkommanderesor") != -1){
@@ -150,6 +234,7 @@ window.onerror = function(msg, url, linenumber) {
       date.innerHTML = data.date;
       time.innerHTML = data.time;
     }
+  }
 
     
     phone.innerHTML = data.phone;
@@ -191,42 +276,43 @@ window.onerror = function(msg, url, linenumber) {
      }
 
      localStorage.removeItem('unAcceptedBooking');
+     localStorage.removeItem('unAcceptedRepeatedBooking');
    }
 
    function confirmDelete(){
-    const boxFromAdress = document.getElementById('box-fromAdress');
-    const boxToAdress = document.getElementById('box-toAdress');
-    const boxTime = document.getElementById('box-time');
-    const boxRepeat = document.getElementById('box-repeat');
-    if(window.location.href.indexOf("aterkommanderesor") != -1){
-      var data = JSON.parse(localStorage.getItem('repeatedBooking'));
-    }
-    else{
-      var data = JSON.parse(localStorage.getItem('regularBooking'));
-    }
     
     getElements();
     // Get the modal
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("cancel");
-    
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     var closeButton = document.getElementsByClassName("close")[1];
 
     modal.style.display = "block";
-   
 
-    if(boxRepeat!=undefined){
-      boxRepeat.innerHTML = data.repeatTransport;
-    }
-  
+    if(window.location.href.indexOf("aterkommanderesor") != -1 || 
+    window.location.href.indexOf("kommanderesor") != -1){
+      if(window.location.href.indexOf("aterkommanderesor") != -1 ){
+        var data = JSON.parse(localStorage.getItem('repeatedBooking'));
+      }
+      else{
+        var data = JSON.parse(localStorage.getItem('regularBooking'));
+      }
+      
+      const boxFromAdress = document.getElementById('box-fromAdress');
+      const boxToAdress = document.getElementById('box-toAdress');
+      const boxTime = document.getElementById('box-time');
+      const boxRepeat = document.getElementById('box-repeat');
+
       boxFromAdress.innerHTML = data.fromAdress;
       boxToAdress.innerHTML = data.toAdress;
       boxTime.innerHTML = data.time;
-    
+
+      if(boxRepeat!=undefined){
+        boxRepeat.innerHTML = data.repeatTransport;
+      }
+    }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
@@ -243,9 +329,21 @@ window.onerror = function(msg, url, linenumber) {
         modal.style.display = "none";
       }
     }
+
+    
    }
 
    function confirmBooking(){
+    if(document.getElementById('week') != null){
+      var weekdata = JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'));
+      data.startWeek = weekdata.startWeek;
+      data.endWeek = weekdata.endWeek;
+    }
+    else if(document.getElementById('month') != null){
+      var monthdata = JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'));
+      data.startMonth = monthdata.startMonth;
+      data.endMonth = monthdata.endMonth;
+    }
     getElements();
     clearBooking();
     data.fromAdress = fromAdress.textContent;
@@ -274,6 +372,7 @@ window.onerror = function(msg, url, linenumber) {
     }
 
     if(window.location.href.indexOf("bekraftaaterkommanderesa") != -1){
+      
       localStorage.setItem('repeatedBooking', JSON.stringify(data));
       window.location.replace("http://127.0.0.1:5500/aterkommanderesor.html");
     }
@@ -312,6 +411,11 @@ window.onerror = function(msg, url, linenumber) {
           modal.style.display = "none";
         }
       }
+
+      if(window.location.href.indexOf("bekraftaaterkommanderesa") != -1){
+        confirmBooking();
+      }
+
       if(window.location.href.indexOf("bekraftaresa") != -1){
         if(JSON.parse(localStorage.getItem('regularBooking')!=null)){
           localStorage.removeItem('regularBooking');
@@ -368,13 +472,16 @@ window.onerror = function(msg, url, linenumber) {
     data.persons = persons.value;
     data.phone = phone.textContent;
     data.information = information.value;
-    data.wheelchair = wheelchair.textContent ;
+    data.wheelchair = wheelchair.textContent;
 
-    localStorage.setItem('regularBooking', JSON.stringify(data));
+    if(date.value > "" && formTime.value > ""){
+      localStorage.setItem('regularBooking', JSON.stringify(data));
+    }
+
    }
 
    function countDown(){
-    var timeleft = 2000;
+    var timeleft = 2;
     var downloadTimer = setInterval(function(){
       if(timeleft <= 0){
         clearInterval(downloadTimer);
@@ -412,24 +519,24 @@ window.onerror = function(msg, url, linenumber) {
     <label for="day6">Söndag</label>`;
 
     var showWeeks =`<label for="startweek">Startvecka</label>
-    <input type="week" name="week" id="startweek">
+    <input type="week" name="week" id="startweek" required>
     <label for="endweek">Slutvecka</label>
-    <input type="week" name="week" id="endweek">`;
+    <input type="week" name="week" id="endweek" required>`;
 
     var showMonths = `<label for="startmonth">Startmånad</label>
-    <input type="month" name="month" id="startmonth">
+    <input type="month" name="month" id="startmonth" required>
     <label for="endmonth">Slutmånad</label>
-    <input type="month" name="endmonth" id="endmonth">`;
+    <input type="month" name="endmonth" id="endmonth" required>`;
 
     switch(document.getElementById('repeatTransport').value){
-      case "Valfria-dagar":
+      case "Valfria dagar":
         document.getElementById('days').innerHTML = showDays;
         document.getElementById('weeks').innerHTML = showWeeks;
         document.getElementById('days').style.display="block";
         document.getElementById('months').innerHTML = "";
         break;
 
-      case "Varje-vardag":
+      case "Varje vardag":
         document.getElementById("day0").checked = true;
         document.getElementById("day1").checked = true;
         document.getElementById("day2").checked = true;
@@ -437,33 +544,40 @@ window.onerror = function(msg, url, linenumber) {
         document.getElementById("day4").checked = true;
         document.getElementById('weeks').innerHTML = showWeeks;
         document.getElementById('days').style.display="none";
+        document.getElementById('months').style.display="none";
         break;
 
-      case "Varje-vecka":
+      case "Varje vecka":
         document.getElementById('days').innerHTML = showDays;
         document.getElementById('weeks').innerHTML = showWeeks;
         document.getElementById('days').style.display="block";
         document.getElementById('months').innerHTML = "";
+        document.getElementById('months').style.display="none";
         break;
 
-      case "Varannan-vecka":
+      case "Varannan vecka":
         document.getElementById('days').innerHTML = showDays;
         document.getElementById('weeks').innerHTML = showWeeks;
         document.getElementById('days').style.display="block";
         document.getElementById('months').innerHTML = "";
+        document.getElementById('months').style.display="none";
         break;
 
-      case "En-gång-i-månaden":
+      case "En gång i månaden":
         document.getElementById('days').innerHTML = showDays;
         document.getElementById('days').style.display="block";
+        document.getElementById('months').style.display="block";
         document.getElementById('months').innerHTML = showMonths;
         document.getElementById('weeks').innerHTML = "";
+        document.getElementById('weeks').style.display="none";
+        editAterkommandeResa();
         break;
       
       default:
         document.getElementById('days').innerHTML = showDays;
         document.getElementById('weeks').innerHTML = showWeeks;
         document.getElementById('days').style.display="block";
+        document.getElementById('months').style.display="none";
         document.getElementById('months').innerHTML = "";
 
     }
@@ -542,8 +656,11 @@ window.onerror = function(msg, url, linenumber) {
     } 
 
     else if(JSON.parse(localStorage.getItem('regularBooking'))!=null){
-    
       var data = JSON.parse(localStorage.getItem('regularBooking'));
+      if(data.date.includes("-")){
+        document.getElementById("date").value = data.date;
+      }
+      else{
       var splitDate = data.date;
       const dateArray = splitDate.split(' ');
       let year = dateArray[3];
@@ -567,6 +684,7 @@ window.onerror = function(msg, url, linenumber) {
 
       document.getElementById("date").value = newDate;
     }
+    }
       document.getElementById("fromAdress").value = data.fromAdress;
       document.getElementById("toAdress").value = data.toAdress;
       document.getElementById("time").value = data.time;
@@ -586,13 +704,89 @@ window.onerror = function(msg, url, linenumber) {
     
   }
 
-  var menu = document.querySelector(".menu")
-  var ham = document.querySelector(".ham")
-  var xIcon = document.querySelector(".xIcon")
-  var menuIcon = document.querySelector(".menuIcon")
-  var body = document.getElementsByTagName("BODY")[0];
+  function editAterkommandeResa(){
+    if(JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'))!=null || JSON.parse(localStorage.getItem('repeatedBooking'))!=null){
 
-  ham.addEventListener("click", toggleMenu)
+    if(JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'))!=null){
+      var data = JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking'));
+    } 
+    else if(JSON.parse(localStorage.getItem('repeatedBooking'))!=null){
+      var data = JSON.parse(localStorage.getItem('repeatedBooking'));
+    }
+
+      var splitDate = data.date;
+      const dateArray = splitDate.split(','); 
+
+      for(var i=0;i<dateArray.length;i++){
+        switch(dateArray[i]){
+          case " Måndag":
+            console.log("True");
+            document.getElementById("day0").checked = true;
+            break;
+    
+          case " Tisdag":
+            document.getElementById("day1").checked = true;
+            break;
+    
+          case " Onsdag":
+            document.getElementById("day2").checked = true;
+            break;
+    
+          case " Torsdag":
+            document.getElementById("day3").checked = true;
+            break;
+    
+          case " Fredag":
+            document.getElementById("day4").checked = true;
+            break;
+  
+            case " Lördag":
+              document.getElementById("day5").checked = true;
+              break;
+  
+            case " Söndag":
+              document.getElementById("day6").checked = true;
+              break;
+          default:
+            console.log("False");
+        }
+      }
+
+      if(data.startWeek!=null){
+        document.getElementById('startweek').value = data.startWeek;
+        document.getElementById('endweek').value = data.endWeek;
+      }
+
+      else if(data.startMonth!=null){
+       
+        if(document.getElementById('startmonth')){
+          
+          document.getElementById('startmonth').value = data.startMonth;
+          document.getElementById('endmonth').value = data.endMonth;
+        }
+        
+      }
+      
+
+      document.getElementById('repeatTransport').value = data.repeatTransport;
+
+      document.getElementById("fromAdress").value = data.fromAdress;
+      document.getElementById("toAdress").value = data.toAdress;
+      document.getElementById("time").value = data.time;
+      document.getElementById("persons").value = data.persons;
+      if(data.information>""){
+        document.getElementById("information").value = data.information;
+      }
+      document.getElementById("phone").value = data.phone;
+
+      if(data.animal>""&&data.animal!=undefined){
+        document.getElementById("option1").checked = true;;
+      }
+      if(data.wheelchair>""&&data.wheelchair!=undefined){
+        document.getElementById("option3").checked = true;;
+      }
+    }
+  }
 
   function toggleMenu() {
   if (menu.classList.contains("showMenu")) {
@@ -610,15 +804,66 @@ window.onerror = function(msg, url, linenumber) {
   }
   }
 
-  var menuLinks = document.querySelectorAll(".menu-item")
+  function notifications(){
+    if(localStorage.getItem('regularBooking')!=null){
+      document.getElementsByClassName("badge")[0].innerHTML = 1;
+      document.getElementsByClassName("badge")[0].style.display = "block";
+    }
+    else{
+      document.getElementsByClassName("badge")[0].innerHTML = 0;
+      document.getElementsByClassName("badge")[0].style.display = "block";
+      document.getElementsByClassName("badge")[0].style.backgroundColor  = "#b72222";
+    }
 
-  menuLinks.forEach(
-  function (menuLink) {
-     menuLink.addEventListener("click", toggleMenu)
+    if(localStorage.getItem('repeatedBooking')!=null){
+      document.getElementsByClassName("badge")[2].innerHTML = 1;
+      document.getElementsByClassName("badge")[2].style.display = "block";
+    }
+
+    else{
+      document.getElementsByClassName("badge")[2].innerHTML = 0;
+      document.getElementsByClassName("badge")[2].style.display = "block";
+      document.getElementsByClassName("badge")[2].style.backgroundColor  = "#b72222";
+    }
+
+
+    if(localStorage.getItem('savedAddresses')!=null){
+      const addressArray = localStorage.getItem('savedAddresses').split(',');
+      document.getElementsByClassName("badge")[3].innerHTML = addressArray.length;
+      document.getElementsByClassName("badge")[3].style.display = "block";
+    }
+
+    else{
+      document.getElementsByClassName("badge")[3].innerHTML = 0;
+      document.getElementsByClassName("badge")[3].style.display = "block";
+      document.getElementsByClassName("badge")[3].style.backgroundColor  = "#b72222";
+    }
+
+
   }
-  )
-
  
+  function calculateDay(originalDate){
+    var splitDate = originalDate;
+    const dateArray = splitDate.split('-');
+    let year = dateArray[0];
+    let originalYear = year;
+    let month = parseInt(dateArray[1]);
+    let day = parseInt(dateArray[2]);
+
+    if(month < 3){
+      month = month + 12;
+      year = year - 1;
+    }
+
+    let partOfYear = Math.floor(year / 100);
+    let yearOfCentury = year % 100;
+
+    var S = Math.floor(2.6 * month - 5.39) + Math.floor(yearOfCentury / 4) + Math.floor(partOfYear / 4) + day + yearOfCentury - (2 * partOfYear);
+
+    var dayOfWeek = S - (7 * Math.floor(S / 7));
+
+    return dayOfWeek;
+}
 
 
     
