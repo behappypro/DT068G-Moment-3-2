@@ -72,6 +72,19 @@ svg{
     margin-right: 20px;
 }
 
+#map{
+    float: left;
+    fill: #000;
+    width: 45px;
+}
+
+#from{
+    fill: #000;
+    width: 22px;
+    vertical-align: bottom;
+   
+}
+
 #clock{
     margin-top: 20px;
 }
@@ -164,15 +177,17 @@ nav a{
     font-weight: 700;
 }
 
-nav a:hover{
+nav ul li a:hover{
     background-color: #0B4F7D;
 }
+
 #logo{
     float: left;
     padding: 20px;
     font-size: 25px;
     font-weight: 800;
 }
+
 /*End navbar*/
 
 /*Start main*/
@@ -352,6 +367,7 @@ input,textarea,select{
     cursor: pointer;
     padding: 0 20px;
     border-radius: 5px;
+    margin-top: 20px !important;
 }
 
 #summary{
@@ -391,6 +407,10 @@ input,textarea,select{
     display: inline-block;
     width: 30%;
     color: #fff !important;
+}
+
+.span{
+    font-weight: 600;
 }
 
 /*End form*/
@@ -617,6 +637,107 @@ footer section a{
 
     /*End nav*/
 
+    /*Start form*/
+    #contact-form label{
+        font-weight: 700;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    #contact-form input[type="text"],#contact-form input[type="email"], 
+    #contact-form textarea{
+        width: 100%;
+    margin: 0 0 5px;
+    background-color: #fff;
+    font-size: .933333em;
+    padding: 0 10px;
+    border: 1px solid #dcdcdc;
+    max-width: 100%;
+    min-width: 160px;
+    min-height: 42px;
+    border-radius: 6px;
+    margin-top: 10px;
+    }
+
+    #contact-form textarea {
+        height: 200px;
+        overflow: auto;
+        resize: none;
+    }
+
+    .required-star {
+        color: red;
+    }
+
+    #contact-form input[type="submit"] {
+        background-color: #fff;
+        font-size: 1em;
+        padding: 0 10px;
+        border: 1px solid #dcdcdc;
+        max-width: 100%;
+        margin: auto;
+        min-width: 160px;
+        min-height: 42px;
+        border-radius: 6px;
+    }
+    
+
+    /**/
+
+    .notification {
+        position: relative;
+      }
+
+      .notification .badge {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color:#333333;
+        color: white;
+        width: 41px;
+        height: 50px;
+      } 
+
+    .date {
+        float: left;
+        width: 46%;
+    }
+    .time {
+        float: right;
+        width: 42%;
+        margin-right: 10%;
+    }
+
+    .date input,.time input{
+        width: 100%;
+    }
+
+    input#datepicker{
+        padding: 17px;
+    }
+
+    input#datepicker:hover{
+        cursor: pointer;
+    }
+
+    .litepicker .container__days .day-item.is-in-range{
+        background-color:var(--main-txt-color);
+        color: #fff;
+    }
+
+    .litepicker .container__days .day-item.is-start-date,.litepicker .container__days .day-item.is-end-date{
+        background-color: var(--main-btn-color);
+    }
+
+    .litepicker .container__days .day-item:hover {
+        box-shadow: inset 0 0 0 1px var(--main-btn-color);
+    }
+
+    .litepicker .container__days .day-item.is-today {
+        font-weight: 900;
+    }
+
     /*Start Media Query*/
     @media screen and (max-width: 522px) {
         #header-desc h1{
@@ -703,6 +824,19 @@ footer section a{
 
         .default-button{
             max-width: 300px;
+        }
+
+        .time{
+            margin-right: 0;
+            width: 100%;
+        }
+
+        .date{
+            width: 100%;
+        }
+
+        .faq{
+            padding: 18px 0;
         }
 
     }
@@ -815,62 +949,10 @@ footer section a{
         }
 
         .faq:after{
-            margin-right: -20px;
+            margin-right: -10px;
         }
 
     }
 
-    .notification {
-        position: relative;
-      }
-
-      .notification .badge {
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color:#333333;
-        color: white;
-        width: 41px;
-        height: 50px;
-      } 
-
-    .date {
-        float: left;
-        width: 46%;
-    }
-    .time {
-        float: right;
-        width: 42%;
-        margin-right: 10%;
-    }
-
-    .date input,.time input{
-        width: 100%;
-    }
-
-    input#datepicker{
-        padding: 17px;
-    }
-
-    input#datepicker:hover{
-        cursor: pointer;
-    }
-
-    .litepicker .container__days .day-item.is-in-range{
-        background-color:var(--main-txt-color);
-        color: #fff;
-    }
-
-    .litepicker .container__days .day-item.is-start-date,.litepicker .container__days .day-item.is-end-date{
-        background-color: var(--main-btn-color);
-    }
-
-    .litepicker .container__days .day-item:hover {
-        box-shadow: inset 0 0 0 1px var(--main-btn-color);
-    }
-
-    .litepicker .container__days .day-item.is-today {
-        font-weight: 900;
-    }
+  
 

@@ -43,15 +43,21 @@
    </header>
    <main>
       <div id="main-content">
-         <div style="margin: 0 auto; max-width: 650px;">
-            <h2>Din resa</h2>
-            <p>Kontrollera dina uppgifter nedan och 
-               bekräfta beställning
-            </p>
-         </div>
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="minasidor.html">Mina sidor</a></li>
+                <li><a href="minaresor.html">Mina resor</a></li>
+                <li>Tur & retur resa</li>
+            </ul>
+        </div>
+        <div style="margin: 0 auto; max-width: 650px;">
+            <h2>Dina tur & retur resor</h2>
+            <p>Nedan är dina bokade tur & retur resor. Vid avbeställning måste detta göras 1 timme innan bokad tid. </p>
+        </div>
          <div id="summary">
             <h2>Turresa</h2>
-            <svg version="1.1" style="margin-top: 0;" id="clock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            <svg version="1.1" id="clock" style="margin-top: 0;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                viewBox="0 0 466.008 466.008" xml:space="preserve">
                <path d="M233.004,0C104.224,0,0,104.212,0,233.004c0,128.781,104.212,233.004,233.004,233.004
                   c128.782,0,233.004-104.212,233.004-233.004C466.008,104.222,361.796,0,233.004,0z M244.484,242.659l-63.512,75.511
@@ -130,46 +136,52 @@
             <h3>Namn: Ashraf Hamadi</h3>
             <h3>Telefon: <span id="phone"></span></h3>
             <div id="buttons">
-               <button onclick="showModal()" class="default-button order" id="order" >
-                  Beställ 
-                  <svg id="accept" width="14px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                     <g data-name="Layer 2">
-                        <g data-name="checkmark-circle" >
-                           <rect width="24" height="24" opacity="0"/>
-                           <path d="M9.71 11.29a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 16a1 1 0 0 0 .72-.34l7-8a1 1 0 0 0-1.5-1.32L12 13.54z"/>
-                           <path d="M21 11a1 1 0 0 0-1 1 8 8 0 0 1-8 8A8 8 0 0 1 6.33 6.36 7.93 7.93 0 0 1 12 4a8.79 8.79 0 0 1 1.9.22 1 1 0 1 0 .47-1.94A10.54 10.54 0 0 0 12 2a10 10 0 0 0-7 17.09A9.93 9.93 0 0 0 12 22a10 10 0 0 0 10-10 1 1 0 0 0-1-1z"/>
+                <button onclick="confirmDelete()" class="default-button cancel" id="cancel">
+                    Avbryt 
+                    <svg id="accept" width="14px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="checkmark-circle" >
+                                <rect width="24" height="24" opacity="0"/>
+                                <path d="M9.71 11.29a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 16a1 1 0 0 0 .72-.34l7-8a1 1 0 0 0-1.5-1.32L12 13.54z"/>
+                                <path d="M21 11a1 1 0 0 0-1 1 8 8 0 0 1-8 8A8 8 0 0 1 6.33 6.36 7.93 7.93 0 0 1 12 4a8.79 8.79 0 0 1 1.9.22 1 1 0 1 0 .47-1.94A10.54 10.54 0 0 0 12 2a10 10 0 0 0-7 17.09A9.93 9.93 0 0 0 12 22a10 10 0 0 0 10-10 1 1 0 0 0-1-1z"/>
+                            </g>
                         </g>
-                     </g>
-                  </svg>
-               </button>
-               <a class="default-button change" href="editeraturoreturresa.html">
-                  Ändra 
-                  <svg version="1.1" id="edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
-                     <path id="XMLID_24_" d="M75,180v60c0,8.284,6.716,15,15,15h60c3.978,0,7.793-1.581,10.606-4.394l164.999-165
-                        c5.858-5.858,5.858-15.355,0-21.213l-60-60C262.794,1.581,258.978,0,255,0s-7.794,1.581-10.606,4.394l-165,165
-                        C76.58,172.206,75,176.022,75,180z M105,186.213L255,36.213L293.787,75l-150,150H105V186.213z"/>
-                     <path id="XMLID_27_" d="M315,150.001c-8.284,0-15,6.716-15,15V300H30V30H165c8.284,0,15-6.716,15-15s-6.716-15-15-15H15
-                        C6.716,0,0,6.716,0,15v300c0,8.284,6.716,15,15,15h300c8.284,0,15-6.716,15-15V165.001C330,156.716,323.284,150.001,315,150.001z"
-                        />
-                  </svg>
-               </a>
-               <button class="default-button cancel" onclick="clearBooking()" >Avbryt</a>
+                    </svg>
+                </button>
+                <a class="default-button change" href="editeraturoreturresa.html">Ändra <svg version="1.1" id="edit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                    <path id="XMLID_24_" d="M75,180v60c0,8.284,6.716,15,15,15h60c3.978,0,7.793-1.581,10.606-4.394l164.999-165
+                       c5.858-5.858,5.858-15.355,0-21.213l-60-60C262.794,1.581,258.978,0,255,0s-7.794,1.581-10.606,4.394l-165,165
+                       C76.58,172.206,75,176.022,75,180z M105,186.213L255,36.213L293.787,75l-150,150H105V186.213z"/>
+                    <path id="XMLID_27_" d="M315,150.001c-8.284,0-15,6.716-15,15V300H30V30H165c8.284,0,15-6.716,15-15s-6.716-15-15-15H15
+                       C6.716,0,0,6.716,0,15v300c0,8.284,6.716,15,15,15h300c8.284,0,15-6.716,15-15V165.001C330,156.716,323.284,150.001,315,150.001z"
+                       />
+                 </svg></a>
             </div>
             <!-- The Modal -->
             <div id="myModal" class="modal" style="display: none;">
-               <!-- Modal content -->
-               <div class="modal-content succesful-modal">
-                <div class="icon-box">
-					<i class="material-icons">&#10004;</i>
-				</div>
-                  <span class="close">&times;</span>
-                  <div class="modal-body">
-                    <h3 id="modal-h3">Resa Bokad</h4><br>
-                    <p id="modal-p">Din resa är nu bokad. Du skickas snart vidare till dina bokningar.</p>
-                    <a style="background-color: #000;" class="default-button addButton" href="bokadturoretur.html">Ok</a>
-                  </div>
-               </div>
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="modal-body">
+                        <div id="box">
+                            <p>
+                                <svg version="1.1" id="exclamation_mark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 24 24" xml:space="preserve">
+                                    <g>
+                                    <path d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M12,19.66
+                                        c-0.938,0-1.58-0.723-1.58-1.66c0-0.964,0.669-1.66,1.58-1.66c0.963,0,1.58,0.696,1.58,1.66C13.58,18.938,12.963,19.66,12,19.66z
+                                        M12.622,13.321c-0.239,0.815-0.992,0.829-1.243,0c-0.289-0.956-1.316-4.585-1.316-6.942c0-3.11,3.891-3.125,3.891,0
+                                        C13.953,8.75,12.871,12.473,12.622,13.321z"/>
+                                </svg>
+                                Vill du verkligen avbryta din tur & retur resa?
+                            </p>
+                        </div>
+                        <br>
+                        <button onclick="clearBooking()" style="font-size: 2rem;" class="default-button order">Ja</button>
+                        <button style="float:right;" class="default-button cancel close">Nej</button>
+                    </div>
+                </div>
             </div>
          </div>
       </div>

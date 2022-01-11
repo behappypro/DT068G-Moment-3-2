@@ -22,16 +22,14 @@
 
             <a id="logo" href="index.html">STHLM Färdtjänst</a>
             <div class="menu">
-            <ul>
-                <li><a class="menu-item" href="index.html">Start</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="#">Färdtjänstresor</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
-                <li><span class="nav-desc">Bokning av resor</span></li>
-                <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
-                <li><span class="nav-desc">Kontakta oss</span></li>
-            </ul>
+                <ul>
+                    <li><a class="menu-item" href="index.html">Start</a></li>
+                    <li><span class="nav-desc">Startsidan</span></li>
+                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+                    <li><span class="nav-desc">Bokning av resor</span></li>
+                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+                    <li><span class="nav-desc">Kontakta oss</span></li>
+                </ul>
         </div>
         </nav>
         <div id="header-container">
@@ -46,9 +44,19 @@
 
     <main>
         <div id="main-content">
-            <div id="demo"></div>
-
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="minasidor.html">Mina sidor</a></li>
+                <li>Min profil</li>
+            </ul>
         </div>
+        <h2 style="text-align: center;">Min profil</h2>
+        <h3 style="text-align: center;">Här kan du välja bland sidorna nedan</h3>
+        <a href="tillstand.html" class="default-button large">Mitt tillstånd</a>
+        <a href="kontaktuppgifter.html" class="default-button large">Kontaktuppgifter</a>
+        </div>
+        <div id="empty-space"></div>
     </main>
 
     <footer>
@@ -71,6 +79,6 @@
         </div>
     </footer>
     
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
     <title>STHLM Färdtjänst</title>
 </head>
@@ -49,11 +50,11 @@
                     <li><a href="index.html">Start</a></li>
                     <li><a href="minasidor.html">Mina sidor</a></li>
                     <li><a href="typavresa.html">Typ av resa</a> </li>
-                    <li>Ändra återkommnade resa</li>
+                    <li>Tur och retur</li>
                 </ul>
             </div>
-            <form action="bekraftaaterkommanderesa.html">
-                <h1 id="heading">Ändra återkommnade resa</h1>
+            <form action="bekraftaturoreturresa.html">
+                <h1 id="heading">Ändra tur och retur resa</h1>
 
                 <h2>Välj adress</h2>
                 <datalist id="adressList"></datalist>
@@ -63,50 +64,20 @@
                 <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
 
                 <h2>Välj restid</h2>
-
-                <label for="repeatTransport">Intervall</label><br>
-                <select id="repeatTransport" name="repeatTransport" onChange="showDays()">
-                    <option value="Valfria dagar">Valfria dagar</option>
-                    <option value="Varje vardag" selected>Varje vardag</option>
-                    <option value="Varje vecka">Varje vecka</option>
-                    <option value="Varannan vecka">Varannan vecka</option>
-                    <option value="En gång i månaden">En gång i månaden</option>
-                </select>
-
-                <div id="days">
-                    <input type="checkbox" id="day0" value="Måndag" name="monday">
-                    <label for="day0">Måndag</label><br>
-                    <input type="checkbox" id="day1" value="Tisdag" name="tuesday">
-                    <label for="day1">Tisdag</label><br>
-                    <input type="checkbox" id="day2" value="Onsdag" name="wednesday">
-                    <label for="day2">Onsdag</label><br>
-                    <input type="checkbox" id="day3" value="Torsdag" name="thursday">
-                    <label for="day3">Torsdag</label><br>
-                    <input type="checkbox" id="day4" value="Fredag" name="friday">
-                    <label for="day4">Fredag</label><br>
-                    <input type="checkbox" id="day5" value="Lördag" name="saturday">
-                    <label for="day5">Lördag</label><br>
-                    <input type="checkbox" id="day6" value="Söndag" name="sunday">
-                    <label for="day6">Söndag</label>
+                
+                <label for="datepicker">Datum Tur & Retur</label>
+                <input type="text" placeholder="Välj datum" autocomplete="off" required id="datepicker"/>
+                
+                <div class="date">
+                <label for="time1">Avgångstid Tur</label>
+                <input type="time" name="time" id="time1" required>
+                </div>
+                <div class="time">
+                <label for="time2">Avgångstid Retur</label>
+                <input type="time" name="time" id="time2" required>
                 </div>
 
-                <div id="weeks">
-                    <label for="startweek">Startvecka</label>
-                    <input type="week" name="week" id="startweek" required>
-                    <label for="endweek">Slutvecka</label>
-                    <input type="week" name="week" id="endweek" required>
-                </div>
-
-                <div id="months">
-                    
-                </div>
                 
-                
-                
-        
-                
-                <label for="time">Tid</label>
-                <input type="time" name="time" id="time" required>
 
                 <h2>Välj detaljer</h2>
 
@@ -157,7 +128,21 @@
     </footer>   
     <script src="./js/main.js"></script>
     <script>window.addEventListener('load', addressList())</script>
-    <script>window.addEventListener('load', editAterkommandeResa())</script>
-    <script>window.addEventListener('load', showDays())</script>
+    <script>window.addEventListener('load', editTurOReturResa())</script>
+
+    <!--Lånad kod från https://litepicker.com-->
+   <script>new Litepicker({
+    element: document.getElementById('datepicker'),
+    singleMode: false,
+    lang:"Sv",
+    tooltipText: {
+      one: 'dag',
+      other: 'dagar'
+    },
+    tooltipNumber: (totalDays) => {
+      return totalDays - 1;
+    }
+  })</script>
+
 </body>
 </html>

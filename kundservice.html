@@ -22,16 +22,14 @@
 
             <a id="logo" href="index.html">STHLM Färdtjänst</a>
             <div class="menu">
-            <ul>
-                <li><a class="menu-item" href="index.html">Start</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="#">Färdtjänstresor</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
-                <li><span class="nav-desc">Bokning av resor</span></li>
-                <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
-                <li><span class="nav-desc">Kontakta oss</span></li>
-            </ul>
+                <ul>
+                    <li><a class="menu-item" href="index.html">Start</a></li>
+                    <li><span class="nav-desc">Startsidan</span></li>
+                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+                    <li><span class="nav-desc">Bokning av resor</span></li>
+                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+                    <li><span class="nav-desc">Kontakta oss</span></li>
+                </ul>
         </div>
         </nav>
         <div id="header-container">
@@ -44,10 +42,28 @@
         </div>
     </header>
 
-    <main>
+    <main style="max-width:550px;">
         <div id="main-content">
-            
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="minasidor.html">Mina sidor</a></li>
+                <li><a href="profil.html">Min profil</a></li>
+                <li>Mitt tillstånd</li>
+                
+            </ul>
         </div>
+        <form id="contact-form">
+            <label for="name">Namn <span class="required-star">*</span></label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email <span class="required-star">*</span></label>
+            <input name="email" id="email" type="email" tabindex="2" required="">
+            <label for="message">Meddelande <span class="required-star">*</span></label>
+            <textarea name="message" id="message" tabindex="5" required=""></textarea>
+            <input type="submit" value="Skicka">
+        </form>
+        </div>
+        <div id="empty-space"></div>
     </main>
 
     <footer>

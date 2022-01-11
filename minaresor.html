@@ -22,16 +22,14 @@
 
             <a id="logo" href="index.html">STHLM Färdtjänst</a>
             <div class="menu">
-            <ul>
-                <li><a class="menu-item" href="index.html">Start</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="#">Färdtjänstresor</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
-                <li><span class="nav-desc">Bokning av resor</span></li>
-                <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
-                <li><span class="nav-desc">Kontakta oss</span></li>
-            </ul>
+                <ul>
+                    <li><a class="menu-item" href="index.html">Start</a></li>
+                    <li><span class="nav-desc">Startsidan</span></li>
+                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+                    <li><span class="nav-desc">Bokning av resor</span></li>
+                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+                    <li><span class="nav-desc">Kontakta oss</span></li>
+                </ul>
         </div>
         </nav>
         <div id="header-container">
@@ -56,11 +54,17 @@
             <h1 style="text-align: center;">Mina resor</h1>
             <p class="limited-p">Här kan du navigera till dina kommande resor, tidigare resor samt lägga till sparade adresser. </p>
             
-            <a onclick="checkIfRideBooked()" class="default-button large notification" href="#">Kommande resor 
+            <a onclick="checkIfRideBooked()" class="default-button large notification" href="#">Enkelresor 
             <span class="badge"></span></a>
 
-            <a class="default-button large notification" href="tidigareresor.html">Tidigare resor<span class="badge" style="display: block;"> 1</span></a>
+            <a onclick="checkIfTwoWayRideBooked()" class="default-button large notification" href="#">Tur & retur resor <span class="badge"></span></a>
+
             <a onclick="checkIfRepeatedRideBooked()" class="default-button large notification" href="#">Återkommande resor <span class="badge"></span></a>
+
+            <a class="default-button large notification" href="tidigareresor.html">Tidigare resor<span class="badge" style="display: block;"> 1</span></a>
+
+            
+
             <a class="default-button large notification" href="sparadeadresser.html">Sparade adresser<span class="badge"></span></a>
             <div id="demo"></div>
 
