@@ -304,6 +304,7 @@ section{
     padding-bottom: 25px;
     padding-top: 25px;
     border-bottom: 1px solid #d6d3d0;
+    background-color: unset;
   }
 
 .faq:after {
@@ -441,6 +442,16 @@ footer a{
 
 footer section a{
     display: block;
+}
+.footer-copyright{
+    border-top: 1px solid grey;
+    margin: 0 auto;
+    text-align: center;
+}
+.footer-copyright p{
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
 }
 /*End footer*/
 
