@@ -19,6 +19,7 @@ for (var i = 0; i < faq.length; i++) {
         }
     });
 }
+/*
 
 window.addEventListener("error", handleError, true);
 
@@ -34,6 +35,8 @@ window.onerror = function(msg, url, linenumber) {
     alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
     return true;
 }
+*/
+
 /*JS för menyn*/
 var menu = document.querySelector(".menu")
 var ham = document.querySelector(".ham")
@@ -291,11 +294,11 @@ function clearBooking() {
 
     else if(window.location.href.indexOf("bokadturoretur") != -1 ){
         localStorage.removeItem('twoWayBooking');
-        window.location.replace("http://127.0.0.1:5500/ingaturoreturresor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/ingaturoreturresor.html");
     }
 
     else if (localStorage.getItem('regularBooking') == null) {
-        window.location.replace("http://127.0.0.1:5500/ingaresor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/ingaresor.html");
     }
 
     if(window.location.href.indexOf("bekraftaresa") != -1){
@@ -388,7 +391,7 @@ function confirmBooking() {
       data.time1 = unAcceptedTwoWayBooking.time1;
       data.time2 = unAcceptedTwoWayBooking.time2;
     
-      window.location.replace("http://127.0.0.1:5500/bokadturoretur.html");
+      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/bokadturoretur.html");
     }
     else{
     data.date = date.textContent;
@@ -411,18 +414,18 @@ function confirmBooking() {
 
     if (window.location.href.indexOf("bekraftaaterkommanderesa") != -1) {
         localStorage.setItem('repeatedBooking', JSON.stringify(data));
-        window.location.replace("http://127.0.0.1:5500/aterkommanderesor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/aterkommanderesor.html");
     } 
     
     else if(window.location.href.indexOf("bekraftaresa") != -1) {
         localStorage.setItem('regularBooking', JSON.stringify(data));
-        window.location.replace("http://127.0.0.1:5500/kommanderesor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/kommanderesor.html");
 
     }
 
     else{
       localStorage.setItem('twoWayBooking', JSON.stringify(data));
-      window.location.replace("http://127.0.0.1:5500/bokatturoreturresa.html");
+      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/bokatturoreturresa.html");
 
     }
 
@@ -490,25 +493,25 @@ function showModal() {
 
 function checkIfRideBooked() {
     if (localStorage.getItem('regularBooking') != null) {
-        window.location.replace("http://127.0.0.1:5500/kommanderesor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/kommanderesor.html");
     } else {
-        window.location.replace("http://127.0.0.1:5500/ingaresor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/ingaresor.html");
     }
 }
 
 function checkIfRepeatedRideBooked() {
     if (localStorage.getItem('repeatedBooking') != null) {
-        window.location.replace("http://127.0.0.1:5500/aterkommanderesor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/aterkommanderesor.html");
     } else {
-        window.location.replace("http://127.0.0.1:5500/ingaaterkommanderesor.html");
+        window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/ingaaterkommanderesor.html");
     }
 }
 
 function checkIfTwoWayRideBooked() {
   if (localStorage.getItem('twoWayBooking') != null) {
-      window.location.replace("http://127.0.0.1:5500/bokadturoretur.html");
+      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/bokadturoretur.html");
   } else {
-      window.location.replace("http://127.0.0.1:5500/ingaturoreturresor.html");
+      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/ingaturoreturresor.html");
   }
 }
 
