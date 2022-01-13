@@ -10,35 +10,40 @@
     <title>STHLM Färdtjänst</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <button class="ham">
-                <span class="menuIcon"><i class="fa fa-bars"></i>
-                </span>
-                <span class="xIcon">
-                  X
-                </span>
-            </button>
+   <!--Header section-->
+   <header aria-label="Main header">
+    <div id="site-map">
+        <a href="webbplatskarta.html">Webbplatskarta</a>
+    </div>
+    <nav>
+        <button class="ham">
+            <span class="menuIcon"><i class="fa fa-bars"></i>
+            </span>
+            <span class="xIcon">
+              X
+            </span>
+        </button>
 
-            <a id="logo" href="index.html">STHLM Färdtjänst</a>
-            <div class="menu">
-                <ul>
-                    <li><a class="menu-item" href="index.html">Start</a></li>
-                    <li><span class="nav-desc">Startsidan</span></li>
-                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
-                    <li><span class="nav-desc">Bokning av resor</span></li>
-                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
-                    <li><span class="nav-desc">Kontakta oss</span></li>
-                </ul>
+        <a id="logo" href="index.html" aria-label="STHLM Färdtjänst, till startsidan">STHLM Färdtjänst</a>
+        <div class="menu" aria-label="Meny">
+        <ul aria-label="Huvudmeny">
+            <li><a class="menu-item" href="index.html" aria-label="Till startsidan">Start</a></li>
+            <li><span class="nav-desc" aria-hidden="true">Startsidan</span></li>
+            <li><a class="menu-item" href="minasidor.html" aria-label="Till mina sidor">Mina sidor</a></li>
+            <li><span class="nav-desc" aria-hidden="true">Bokning av resor</span></li>
+            <li><a class="menu-item" href="kundservice.html" aria-label="Till kundservice">Kundservice</a></li>
+            <li><span class="nav-desc" aria-hidden="true">Kontakta oss</span></li>
+        </ul>
+    </div>
+    </nav>
+    <div id="header-container">
+        <div id="header-desc">
+            <h1 aria-hidden="true">STHLM Färdtjänst</h1>
         </div>
-        </nav>
-        <div id="header-container">
-            <div id="header-desc">
-                <h1 aria-hidden="true">STHLM Färdtjänst</h1>
-            </div>
-            <div id="header-image"></div>
-        </div>
-    </header>
+        <div id="header-image"></div>
+    </div>
+</header>
+<!--End header section-->
 
     <main style="max-width:550px;">
         <div id="main-content">
