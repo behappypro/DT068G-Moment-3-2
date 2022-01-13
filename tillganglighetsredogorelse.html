@@ -4,9 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>STHLM Färdtjänst</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <button class="ham">
+                <span class="menuIcon"><i class="fa fa-bars"></i>
+                </span>
+                <span class="xIcon">
+                  X
+                </span>
+            </button>
+
+            <a id="logo" href="index.html">STHLM Färdtjänst</a>
+            <div class="menu">
+                <ul>
+                    <li><a class="menu-item" href="index.html">Start</a></li>
+                    <li><span class="nav-desc">Startsidan</span></li>
+                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+                    <li><span class="nav-desc">Bokning av resor</span></li>
+                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+                    <li><span class="nav-desc">Kontakta oss</span></li>
+                </ul>
+        </div>
+        </nav>
+        <div id="header-container">
+            <div id="header-desc">
+                <h1 aria-hidden="true">STHLM Färdtjänst</h1>
+            </div>
+            <div id="header-image"></div>
+        </div>
+    </header>
+
+    <main style="max-width:550px;">
+        <div id="main-content">
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li>Tillgänglighetsredogörelse</li>
+                
+            </ul>
+        </div>
+        <h1 style="font-size: 2em; word-break: break-word;">Tillgänglighetsredogörelse för STHLM färdtjänst</h1>
+        <p>Detta är en tillgänglighetsredogörelse för webbplatsen STHLM Färdtjänst som är en fiktiv webbplats för färdtjänst. Vårt fokus är att erbjuda webbplatsen till så många besökare som möjligt. Vi har därför i denna redogörelse beskrivit vilka lagar webbplatsen uppfyller men också brister som vi planerar att åtgärda framåt.  Du hittar också information om hur du kan kontakta oss om du upptäcker brister.</p>
+        <h2>Brister</h2>
+        <h2>Rapportera brister</h2>
+        <p>Vårt mål är en tillgänglig webbplats för alla. Vi strävar därför hela tiden att uppnå detta mål. Om du skulle uppmärksamma brister som inte uppfyller tillgänglighetskraven eller som hindrar dig som användare från att använda webbplatsen kan du gärna kontakta oss genom nedanstående medel.</p>
+        <a href="tel:081236456">Telefon: 08-123 64 56</a><br>
+        <a href="mailto:kontakt@sthlmfardtjanst.se">Email: kontakt@sthlmfardtjanst.se</a>
+        <h2>Så har vi testat webbplatsen</h2>
+        <p>Vi har testat webbplatsen genom olika plugin som Wave samt Funkify. Testerna har visat goda resultat på tillgänglighet. Alla undersidor är även godkända av W3C validator och inga syntaxfel är tillgängliga. Google Lighthouse analys har även gjorts med 100 i resultat på tillgänglighet. Vi gör kontinuerligt en självskattning (intern testning) med hjälp av ovanstående plugin och verktyg. <br><br>
+        Senaste bedömningen gjordes den 13 januari 2022.
+            </p>
+
+        </div>
+        <div id="empty-space"></div>
+    </main>
+
+         <!--Start footer-->
+  <footer>
+    <div id="footer-container">
+        <section style="border: none;">
+            <h2>Sidor</h2>
+            <a href="index.html">Start</a>
+            <a href="minasidor.html">Mina sidor</a>
+            <a href="kundservice.html">Kundservice</a>
+        </section>
+ 
+        <section style="border: none;">
+            <h2>Kundservice</h2>
+            <h3>Helgfri vardag 12-18:00</h3>
+            <a href="tel:081236456">08-123 64 56</a>
+            <a href="mailto:kontakt@sthlmfardtjanst.se">kontakt@sthlmfardtjanst.se</a>
+        </section>
+ 
+    </div>
+    <div class="footer-copyright">
+        <p>Copyright 2022 STHLM Färdtjänst</p>
+        <a href="tillganglighetsredogorelse.html">Tillgänglighetsredogörelse</a>
+    </div>
+ </footer>
+ <!--End footer-->
+   
     
+    <script src="./js/main.js"></script>
 </body>
 </html>

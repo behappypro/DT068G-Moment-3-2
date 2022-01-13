@@ -1,19 +1,23 @@
 "use strict";
 
 
-// Code for FAQ
+
 var faq = document.getElementsByClassName("faq");
 let daysArray = ["Lördag", "Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 let monthArray = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December", "Januari", "Februari"];
 let savedAddressArray = [];
 var data = {};
 
+// Kod för FAQ med Aria
 for (var i = 0; i < faq.length; i++) {
     faq[i].addEventListener("click", function() {
         this.classList.toggle("active");
+        this.setAttribute('aria-expanded','true');
+
         var panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
+            this.setAttribute('aria-expanded','false');
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }

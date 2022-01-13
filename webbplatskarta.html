@@ -4,9 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>STHLM Färdtjänst</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <button class="ham">
+                <span class="menuIcon"><i class="fa fa-bars"></i>
+                </span>
+                <span class="xIcon">
+                  X
+                </span>
+            </button>
+
+            <a id="logo" href="index.html">STHLM Färdtjänst</a>
+            <div class="menu">
+                <ul>
+                    <li><a class="menu-item" href="index.html">Start</a></li>
+                    <li><span class="nav-desc">Startsidan</span></li>
+                    <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
+                    <li><span class="nav-desc">Bokning av resor</span></li>
+                    <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
+                    <li><span class="nav-desc">Kontakta oss</span></li>
+                </ul>
+        </div>
+        </nav>
+        <div id="header-container">
+            <div id="header-desc">
+                <h1 aria-hidden="true">STHLM Färdtjänst</h1>
+            </div>
+            <div id="header-image"></div>
+        </div>
+    </header>
+
+    <main style="max-width:550px;">
+        <div id="main-content">
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li>Webbplatskarta</li>
+                
+            </ul>
+        </div>
+
+        
+            <ul id="sitemap">
+                <li>
+                    <a href="index.html">Start</a>
+                    <ul>
+                        <li>
+                            <a href="minasidor.html">Mina sidor</a>
+                            <ul>
+                                <li><a href="typavresa.html">Boka typ av resa</a>
+                                <ul>
+                                    <li><a href="enkelresa.html">Enkelresa</a></li>
+                                    <li><a href="turoreturresa.html">Tur & retur resa</a></li>
+                                    <li><a href="aterkommanderesa.html">Återkommande resa</a></li>
+                                </ul>
+                                </li>
+                                <li><a href="minaresor.html">Mina resor</a>
+                                <ul>
+                                    <li><a href="kommanderesor.html">Kommande enkelresor</a></li>
+                                    <li><a href="turoreturresa.html">Tur & returresa</a></li>
+                                    <li><a href="aterkommanderesor.html">Återkommande resor</a></li>
+                                    <li><a href="tidigareresor.html">Tidigare resor</a></li>
+                                    <li><a href="sparadeadresser.html">Sparade adresser</a></li>
+                                </ul></li>
+                                <li><a href="profil.html">Min profil</a>
+                                <ul>
+                                    <li><a href="tillstand.html">Mitt tillstånd</a></li>
+                                    <li><a href="kontaktuppgifter.html">Kontaktuppgifter</a></li>
+                                </ul></li>
+                            </ul>
+                        </li>
+                        <li><a href="kundservice.html">Kundservice</a></li>
+                        <li><a href="tillganglighetsredogorelse.html">Tillgänglighetsredogörelse</a></li>
+                    </ul>
+                </li>
+            </ul>
+        
+        
+
+        </div>
+        <div id="empty-space"></div>
+    </main>
+
+         <!--Start footer-->
+  <footer>
+    <div id="footer-container">
+        <section style="border: none;">
+            <h2>Sidor</h2>
+            <a href="index.html">Start</a>
+            <a href="minasidor.html">Mina sidor</a>
+            <a href="kundservice.html">Kundservice</a>
+        </section>
+ 
+        <section style="border: none;">
+            <h2>Kundservice</h2>
+            <h3>Helgfri vardag 12-18:00</h3>
+            <a href="tel:081236456">08-123 64 56</a>
+            <a href="mailto:kontakt@sthlmfardtjanst.se">kontakt@sthlmfardtjanst.se</a>
+        </section>
+ 
+    </div>
+    <div class="footer-copyright">
+        <p>Copyright 2022 STHLM Färdtjänst</p>
+        <a href="tillganglighetsredogorelse.html">Tillgänglighetsredogörelse</a>
+    </div>
+ </footer>
+ <!--End footer-->
+   
     
+    <script src="./js/main.js"></script>
 </body>
 </html>

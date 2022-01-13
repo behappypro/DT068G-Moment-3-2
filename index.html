@@ -10,7 +10,7 @@
 </head>
 <body style="overflow: auto;">
     <!--Header section-->
-    <header>
+    <header aria-label="Main header">
         <div id="site-map">
             <a href="webbplatskarta.html">Webbplatskarta</a>
         </div>
@@ -23,23 +23,21 @@
                 </span>
             </button>
 
-            <a id="logo" href="index.html">STHLM Färdtjänst</a>
-            <div class="menu">
-            <ul>
-                <li><a class="menu-item" href="index.html">Start</a></li>
-                <li><span class="nav-desc">Startsidan</span></li>
-                <li><a class="menu-item" href="minasidor.html">Mina sidor</a></li>
-                <li><span class="nav-desc">Bokning av resor</span></li>
-                <li><a class="menu-item" href="kundservice.html">Kundservice</a></li>
-                <li><span class="nav-desc">Kontakta oss</span></li>
+            <a id="logo" href="index.html" aria-label="STHLM Färdtjänst, till startsidan">STHLM Färdtjänst</a>
+            <div class="menu" aria-label="Meny">
+            <ul aria-label="Huvudmeny">
+                <li><a class="menu-item" href="index.html" aria-label="Till startsidan">Start</a></li>
+                <li><span class="nav-desc" aria-hidden="true">Startsidan</span></li>
+                <li><a class="menu-item" href="minasidor.html" aria-label="Till mina sidor">Mina sidor</a></li>
+                <li><span class="nav-desc" aria-hidden="true">Bokning av resor</span></li>
+                <li><a class="menu-item" href="kundservice.html" aria-label="Till kundservice">Kundservice</a></li>
+                <li><span class="nav-desc" aria-hidden="true">Kontakta oss</span></li>
             </ul>
         </div>
         </nav>
         <div id="header-container">
             <div id="header-desc">
-                <h1>SHLM Färdtjänst</h1>
-                <p>Här hittar du information om 
-                    färdtjänstresor och sjukresor</p>
+                <h1 aria-hidden="true">STHLM Färdtjänst</h1>
             </div>
             <div id="header-image"></div>
         </div>
@@ -48,7 +46,7 @@
     <!--Start main content-->
     <main>
         <div id="main-content">
-            <section id="first-section">
+            <section id="first-section" aria-label="Beställ färdtjänstresa">
                 <h2 class="section-heading">Beställ färdtjänstresa</h2>
                 <div id="flex-container">
                     <div class="flex-section">
@@ -147,35 +145,35 @@
                     c-0.063-1.074,0.295-2.173,1.246-3.31c0.673-0.803,1.223-1.477,1.223-2.194c0-0.737-0.487-1.222-1.542-1.263
                     c-0.693,0-1.539,0.251-2.084,0.632l-0.718-2.301c0.759-0.442,2.022-0.861,3.52-0.861c2.785,0,4.048,1.538,4.048,3.289
                     C18.094,10.233,17.104,11.287,16.301,12.173z"/></svg>Vanliga frågor om färdtjänst</h2>
-                    <button class="faq">Vad är färdtjänst?</button>
+                    <button aria-expanded="false" aria-controls="svar1" id="btn1" class="faq">Vad är färdtjänst?</button>
                     <div class="panel">
-                        <p>Färdtjänst är sociala resor, dvs för att kunna 
+                        <p id="svar1" role="region" aria-labelledby="btn1">Färdtjänst är sociala resor, dvs för att kunna 
                             genomföra sociala aktiviteter eller ärenden. 
                             Färdtjänst är en persontransportservice som 
                             bedrivs med både personbilar och specialfordon.</p>
                     </div>
 
-                    <button class="faq">Så här ansöker du om färdtjänst</button>
+                    <button aria-expanded="false" aria-controls="svar2" id="btn2" class="faq">Så här ansöker du om färdtjänst</button>
                     <div class="panel">
-                        <p>Du kan antingen ansöka om färdtjänst via 
+                        <p id="svar2" role="region" aria-labelledby="btn2">Du kan antingen ansöka om färdtjänst via 
                             E-tjänst eller skriv ut en blankett här och skicka 
                             in. Du kan också kontakta färdtjänsthandläggare 
                             som du når via kommuncenter telefon: 
                             0526-190 00 och be att få en blankett hemskickad</p>
                     </div>
 
-                    <button class="faq">Var får jag åka och vad kostar det?</button>
+                    <button aria-expanded="false" aria-controls="svar3" id="btn3" class="faq">Var får jag åka och vad kostar det?</button>
                     <div class="panel">
-                        <p>Du kan antingen ansöka om färdtjänst via 
+                        <p id="svar3" role="region" aria-labelledby="btn3">Du kan antingen ansöka om färdtjänst via 
                             E-tjänst eller skriv ut en blankett här och skicka 
                             in. Du kan också kontakta färdtjänsthandläggare 
                             som du når via kommuncenter telefon: 
                             0526-190 00 och be att få en blankett hemskickad</p>
                     </div>
 
-                    <button class="faq">Vem får åka med?</button>
+                    <button aria-expanded="false" aria-controls="svar4" id="btn4" class="faq">Vem får åka med?</button>
                     <div class="panel">
-                        <p>Du kan antingen ansöka om färdtjänst via 
+                        <p id="svar4" role="region" aria-labelledby="btn4">Du kan antingen ansöka om färdtjänst via 
                             E-tjänst eller skriv ut en blankett här och skicka 
                             in. Du kan också kontakta färdtjänsthandläggare 
                             som du når via kommuncenter telefon: 
@@ -199,8 +197,8 @@
             <section style="border: none;">
                 <h2>Kundservice</h2>
                 <h3>Helgfri vardag 12-18:00</h3>
-                <a href="tel:081236456">08-123 64 56</a>
-                <a href="mailto:kontakt@sthlmfardtjanst.se">kontakt@sthlmfardtjanst.se</a>
+                <a href="tel:081236456" aria-label="Ring telefon">08-123 64 56</a>
+                <a href="mailto:kontakt@sthlmfardtjanst.se" aria-label="Mejla">kontakt@sthlmfardtjanst.se</a>
             </section>
      
         </div>
