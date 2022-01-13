@@ -60,24 +60,25 @@
                 <datalist id="adressList"></datalist>
                 <label for="fromAdress">Från adress</label>
                 <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
+                <span>Fältet 'Från adress' krävs.<br></span>
                 <label for="toAdress">Till adress</label>
                 <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
-
+                <span>Fältet 'Till adress' krävs.<br></span>
                 <h2>Välj restid</h2>
                 
                 <label for="datepicker">Datum Tur & Retur</label>
                 <input type="text" placeholder="Välj datum" autocomplete="off" required id="datepicker"/>
-                
+                <span>Fältet 'Datum' krävs.<br></span>
                 <div class="date">
                 <label for="time1">Avgångstid Tur</label>
                 <input type="time" name="time" id="time1" required>
+                <span>Fältet 'Avgångstid Tur' krävs.<br></span>
                 </div>
                 <div class="time">
                 <label for="time2">Avgångstid Retur</label>
                 <input type="time" name="time" id="time2" required>
+                <span>Fältet 'Avgångstid Retur' krävs.<br></span>
                 </div>
-
-                
 
                 <h2>Välj detaljer</h2>
 
@@ -87,12 +88,14 @@
                 
                 <label for="persons">Antal resenärer (Tillägg av fler resenärer kostar extra)</label>
                 <input type="number" name="persons" id="persons" value="1">
+                <span>Fältet 'Resenärer' krävs.<br></span>
                 
                 <label for="information">Information till föraren (max 54 tecken)</label>
                 <textarea name="information" id="information" cols="23" rows="2"></textarea>
                 
                 <label for="phone">Telefonnummer föraren kan ringa dig på</label>
                 <input type="number" name="phone" id="phone" required>
+                <span>Fältet 'Telefonnummer' krävs.<br></span>
                 
                 <label>Tillval som kostar extra</label><br><br>
                 <input type="checkbox" name="options" id="option1">

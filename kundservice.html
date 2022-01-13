@@ -47,20 +47,26 @@
         <div id="breadcrumbs">
             <ul>
                 <li><a href="index.html">Start</a></li>
-                <li><a href="minasidor.html">Mina sidor</a></li>
-                <li><a href="profil.html">Min profil</a></li>
-                <li>Mitt tillstånd</li>
+                <li>Kundservice</li>
                 
             </ul>
         </div>
-        <form id="contact-form">
+
+        <form id="contact-form" onsubmit="return false;">
+            <h2>Kontakta oss</h2>
+            <p>Genom formuläret nedan kan du kontaka vår kundtjänst. Vi återkommer
+                till alla ärenden inom 24h.
+            </p>
             <label for="name">Namn <span class="required-star">*</span></label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
             <label for="email">Email <span class="required-star">*</span></label>
-            <input name="email" id="email" type="email" tabindex="2" required="">
+            <input name="email" id="email" type="email"required>
             <label for="message">Meddelande <span class="required-star">*</span></label>
-            <textarea name="message" id="message" tabindex="5" required=""></textarea>
-            <input type="submit" value="Skicka">
+            <textarea name="message" id="message"required></textarea>
+            <span id="output" style="display: block; font-weight: 900;"></span>
+            <button type="submit" onclick="if(document.getElementById('name').value>''&&document.getElementById('email').value>''&&document.getElementById('message').value>''){
+                document.getElementById('output').innerHTML='Meddelande skickat';
+            }">Skicka</button>
         </form>
         </div>
         <div id="empty-space"></div>
@@ -71,14 +77,13 @@
             <section style="border: none;">
                 <h2>Sidor</h2>
                 <a href="#">Start</a>
-                <a href="#">Färdtjänstresor</a>
                 <a href="#">Mina sidor</a>
                 <a href="#">Kundservice</a>
             </section>
 
             <section style="border: none;">
                 <h2>Kundservice</h2>
-                <p>Helgfri vardag 12:18:00</p>
+                <h3>Helgfri vardag 12-18:00</h3>
                 <a href="#">08-123 64 56</a>
                 <a href="#">kontakt@sthlmfardtjanst.se</a>
             </section>

@@ -60,9 +60,12 @@
                     <datalist id="adressList"></datalist>
                     <label for="fromAdress">Från adress</label>
                     <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
+                    <span>Fältet 'Från adress' krävs.<br></span>
+
                     <label for="toAdress">Till adress</label>
                     <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
-                <h2>Välj restid</h2>
+                    <span>Fältet 'Till adress' krävs.<br></span>
+                    <h2>Välj restid</h2>
 
                 <label for="repeatTransport">Intervall</label><br>
                 <select id="repeatTransport" name="repeatTransport" onChange="showDays()">
@@ -87,12 +90,17 @@
                     <label for="day5">Lördag</label><br>
                     <input type="checkbox" id="day6" value="Söndag" name="sunday">
                     <label for="day6">Söndag</label>
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span>
                     </div>
                 <div id="weeks">
                     <label for="startweek">Startvecka</label>
                     <input type="week" name="week" id="startweek" required>
+                    <span>Fältet 'Startvecka' krävs.<br></span>
+
                     <label for="endweek">Slutvecka</label>
                     <input type="week" name="week" id="endweek" required>
+                    <span>Fältet 'Slutvecka' krävs.<br></span>
                 </div>
 
                 <div id="months">
@@ -102,6 +110,8 @@
                 
                 <label for="time">Tid</label>
                 <input type="time" name="time" id="time" required>
+                <span>Fältet 'Tid' krävs.<br></span>
+
 
                 <h2>Välj detaljer</h2>
 
@@ -111,12 +121,14 @@
                 
                 <label for="persons">Antal resenärer (Tillägg av fler resenärer kostar extra)</label>
                 <input type="number" name="persons" id="persons" value="1">
+                <span>Fältet 'Resenärer' krävs.<br></span>
                 
                 <label for="information">Information till föraren (max 54 tecken)</label>
                 <textarea name="information" id="information" cols="23" rows="2"></textarea>
                 
                 <label for="phone">Telefonnummer föraren kan ringa dig på</label>
                 <input type="number" name="phone" id="phone" required>
+                <span>Fältet 'Telefonnummer' krävs.<br></span>
                 
                 <label>Tillval som kostar extra</label><br><br>
                 <input type="checkbox" name="options" id="option1">

@@ -182,10 +182,13 @@ nav ul li a:hover{
 }
 
 #logo{
-    float: left;
-    padding: 20px;
     font-size: 25px;
     font-weight: 800;
+    top: 1rem;
+    left: 1rem;
+    position: relative;
+    padding: 0 !important;
+    float: left;
 }
 
 /*End navbar*/
@@ -421,6 +424,12 @@ input,textarea,select{
 footer{
     border-top: 1px solid #d6d3d0;
     margin-top: 50px;
+    background-color: var(--main-bg-color);
+    color: #fff;
+}
+
+footer a{
+    color: #fff;
 }
 
 #footer-container{
@@ -674,9 +683,8 @@ footer section a{
         font-size: 1em;
         padding: 0 10px;
         border: 1px solid #dcdcdc;
-        max-width: 100%;
-        margin: auto;
-        min-width: 160px;
+        max-width: 130px;
+        margin: 0;
         min-height: 42px;
         border-radius: 6px;
     }
@@ -824,6 +832,7 @@ footer section a{
 
         .default-button{
             max-width: 300px;
+           
         }
 
         .time{
@@ -838,6 +847,11 @@ footer section a{
         .faq{
             padding: 18px 0;
         }
+
+        #contact-form input[type="text"],#contact-form input[type="email"], 
+    #contact-form textarea{
+        border: 1px solid #838383;
+    }
 
     }
 
@@ -858,8 +872,7 @@ footer section a{
             background: none;
             color: #fff;
             border: unset;
-            font-size: 40px;
-            
+            font-size: 5vmax;  
         }
           
           .xIcon {
@@ -917,7 +930,9 @@ footer section a{
             letter-spacing: .4em;
             text-transform: uppercase;
             text-align: center;
-            padding: 0.5rem 0 2rem 0;
+            padding: 0.5rem 0 2em 0;
+            font-size: 4vw;
+            
         }
     
         .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
@@ -936,6 +951,11 @@ footer section a{
         button.ham {
             display: block;
         }
+
+        a.menu-item {
+            font-size: 6vw;
+            text-decoration: underline;
+        }
     }
 
     @media screen and (max-width: 400px){
@@ -952,6 +972,36 @@ footer section a{
             margin-right: -10px;
         }
 
+        #logo{
+            font-size: 8vw;
+        }
+
+        p,h1,h2,h3,a{
+            word-break: break-word;
+        }
+        .default-button{
+            font-size: 5vw;
+        }
+        .remove-button{
+            width: 90%;
+            float: none;
+        }
+
+    }
+
+    .error{
+        border:2px solid red;
+    }
+
+    form span{
+        display: none;
+    }
+
+    .required{
+        display: block;
+        color: red;
+        font-weight: 600;
+        padding: 0 0 10px 0;
     }
 
   

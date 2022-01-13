@@ -68,6 +68,14 @@ function getElements() {
 }
 
 function getFormData() {
+    IsEmpty();
+    if(window.location.href.indexOf("aterkommanderesa") != -1){
+        let checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+        if(checkboxes.length == 0) {
+        alert("Ingen dag vald");
+        }
+    }
     if (document.getElementById('startweek') != null) {
         const startWeek = document.getElementById('startweek');
         const endWeek = document.getElementById('endweek');
@@ -307,7 +315,7 @@ function confirmDelete() {
 
     getElements();
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("modal");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -408,17 +416,21 @@ function confirmBooking() {
     
     else if(window.location.href.indexOf("bekraftaresa") != -1) {
         localStorage.setItem('regularBooking', JSON.stringify(data));
+        window.location.replace("http://127.0.0.1:5500/kommanderesor.html");
+
     }
 
     else{
       localStorage.setItem('twoWayBooking', JSON.stringify(data));
+      window.location.replace("http://127.0.0.1:5500/bokatturoreturresa.html");
+
     }
 
 }
 
 function showModal() {
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("modal");
 
 
     // Get the <span> element that closes the modal
@@ -553,12 +565,17 @@ function showDays() {
     <input type="checkbox" id="day5" value="Lördag" name="saturday">
     <label for="day5">Lördag</label><br>
     <input type="checkbox" id="day6" value="Söndag" name="sunday">
-    <label for="day6">Söndag</label>`;
+    <label for="day6">Söndag</label>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span>Fältet 'Dagar' krävs.<br></span>`;
 
     var showWeeks = `<label for="startweek">Startvecka</label>
     <input type="week" name="week" id="startweek" required>
+    <span>Fältet 'Startvecka' krävs.<br></span>
     <label for="endweek">Slutvecka</label>
-    <input type="week" name="week" id="endweek" required>`;
+    <input type="week" name="week" id="endweek" required>
+    <span>Fältet 'Slutvecka' krävs.<br></span>
+    `;
 
     var showMonths = `<label for="startmonth">Startmånad</label>
     <input type="month" name="month" id="startmonth" required>
@@ -918,3 +935,24 @@ function calculateDay(day,month,year) {
 
     return dayOfWeek;
 }
+
+function IsEmpty() {
+  
+    var inputs = document.getElementsByTagName('input');
+    var span = document.querySelectorAll('form span');
+    
+    
+    for(var key in inputs) {
+        var value = inputs[key].value;
+        if(value < 1) {
+        
+            console.log(inputs[key]);
+            inputs[key].className = "error";
+            span[key].className='required';
+
+        }
+    }
+}
+    
+    
+  
