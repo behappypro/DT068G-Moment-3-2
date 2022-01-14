@@ -1,6 +1,7 @@
 "use strict";
 
 // Scrollar ner tilll innehåll
+/*
 window.onload = function() {
     setTimeout(scroll, 1000);
     function scroll(){
@@ -10,7 +11,7 @@ window.onload = function() {
           });
     }
 }
-
+*/
 var faq = document.getElementsByClassName("faq");
 let daysArray = ["Lördag", "Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 let monthArray = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December", "Januari", "Februari"];

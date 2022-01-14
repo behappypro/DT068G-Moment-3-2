@@ -55,13 +55,14 @@
                 </ul>
             </div>
             <form action="bekraftaresa.html" name="yourform" id="yourform">
+                <h1 id="heading">Boka enkelresa</h1>
                 <h2>Välj adress</h2>
                 <datalist id="adressList"></datalist>
                 <label for="fromAdress">Från adress</label>
-                <input id="fromAdress" type="text" autocomplete="off" list="adressList" required>
+                <input id="fromAdress" type="text" autocomplete="street-address" list="adressList" required>
                 <span>Fältet 'Från adress' krävs.<br></span>
                 <label for="toAdress">Till adress</label>
-                <input id="toAdress" type="text" autocomplete="off" list="adressList" required>
+                <input id="toAdress" type="text" autocomplete="street-address" list="adressList" required>
                 <span>Fältet 'Till adress' krävs.<br></span>
 
                 <h2>Välj restid</h2>
@@ -91,7 +92,7 @@
                 <textarea name="information" id="information" cols="23" rows="2"></textarea>
                 
                 <label for="phone">Telefonnummer föraren kan ringa dig på</label>
-                <input type="number" name="phone" id="phone" required>
+                <input type="number" autocomplete="tel-local" name="phone" id="phone" required>
                 <span>Fältet 'Telefonnummer' krävs.<br></span>
                 
                 <label>Tillval som kostar extra</label><br><br>
@@ -101,7 +102,7 @@
                 <label for="option3">Rullstolsanpassat</label>
  
                 <button style="margin: 0;" class="default-button" type="submit" onclick="getFormData()">Gå vidare 
-                    <svg style="vertical-align:text-bottom; fill:none; width:30px" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></button>
+                <svg style="vertical-align:text-bottom; fill:none; width:30px" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></button>
           
             </form>
         </div>

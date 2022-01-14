@@ -162,12 +162,20 @@ nav ul{
     height: 4.5rem;
 }
 
-ul{
+nav ul, #sitemap{
     font-size: 1.125rem;
     line-height: 2.5rem;
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+#flaws-list{
+    line-height: 2rem; 
+}
+
+#flaws-list li {
+    margin-bottom: 10px;
 }
 
 #sitemap ul > li::before{
@@ -918,6 +926,16 @@ footer section a {
         #contact-form input[type="text"],#contact-form input[type="email"], 
     #contact-form textarea{
         border: 1px solid #838383;
+    }
+    header,#header-image {
+        height: 350px;
+    }
+    #header-desc h1{
+        margin-top: 60px;
+    }
+
+    a.menu-item{
+        font-size: 8vw;
     }
 
     }
