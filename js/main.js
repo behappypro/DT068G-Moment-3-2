@@ -1,6 +1,15 @@
 "use strict";
 
-
+// Scrollar ner tilll innehåll
+window.onload = function() {
+    setTimeout(scroll, 1000);
+    function scroll(){
+        window.scrollTo({
+            top: 600,
+            behavior: 'smooth'
+          });
+    }
+}
 
 var faq = document.getElementsByClassName("faq");
 let daysArray = ["Lördag", "Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
@@ -23,8 +32,8 @@ for (var i = 0; i < faq.length; i++) {
         }
     });
 }
-/*
 
+/*
 window.addEventListener("error", handleError, true);
 
 function handleError(evt) {
@@ -80,7 +89,7 @@ function getFormData() {
         let checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
 
         if(checkboxes.length == 0) {
-        alert("Ingen dag vald");
+        alert("Ingen veckodag vald");
         }
     }
     if (document.getElementById('startweek') != null) {
@@ -224,7 +233,10 @@ function printData() {
 
         persons.innerHTML = data.persons;
 
-    } else {
+    } 
+    
+    else {
+        
         var splitDate = data.date;
         const dateArray = splitDate.split('-');
         let year = dateArray[0];
@@ -232,23 +244,12 @@ function printData() {
         let month = parseInt(dateArray[1]);
         let day = parseInt(dateArray[2]);
 
-       /*  if (month < 3) {
-            month = month + 12;
-            year = year - 1;
-        }
-
-        let partOfYear = Math.floor(year / 100);
-        let yearOfCentury = year % 100;
-
-        var S = Math.floor(2.6 * month - 5.39) + Math.floor(yearOfCentury / 4) + Math.floor(partOfYear / 4) + day + yearOfCentury - (2 * partOfYear);
-
-        var dayOfWeek = S - (7 * Math.floor(S / 7)); */
-
         persons.innerHTML = data.persons;
 
         if (window.location.href.indexOf("bekraftaaterkommanderesa") != -1) {
-            if (data.repeatTransport == "Varje-vardag") {
-                date.innerHTML = "Måndag-Fredag";
+
+            if (data.repeatTransport == "Varje vardag") {
+                date.innerHTML = "Måndag-Fredag,";
             } else {
                 date.innerHTML = data.date;
             }
@@ -256,7 +257,12 @@ function printData() {
             repeatTransport.innerHTML = data.repeatTransport;
 
         } else if (window.location.href.indexOf("aterkommanderesor") != -1) {
-            date.innerHTML = data.date;
+            if (data.repeatTransport == "Varje vardag") {
+                
+                date.innerHTML = "Måndag-Fredag,";
+            } else {
+                date.innerHTML = data.date;
+            }
             time.innerHTML = data.time;
             repeatTransport.innerHTML = data.repeatTransport;
         } else if (window.location.href.indexOf("bekraftaresa") != -1) {
@@ -287,6 +293,7 @@ function printData() {
     }
 
 }
+
 function clearBooking() {
     if (window.location.href.indexOf("aterkommanderesor") != -1) {
         localStorage.removeItem('repeatedBooking');
@@ -323,12 +330,15 @@ function confirmDelete() {
     getElements();
     // Get the modal
     var modal = document.getElementById("modal");
+    var modalContent = document.getElementById('modal-content');
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     var closeButton = document.getElementsByClassName("close")[1];
 
     modal.style.display = "block";
+    //modal.setAttribute("aria-hidden","false");
+    //modalContent.focus();
 
     if (window.location.href.indexOf("aterkommanderesor") != -1 ||
         window.location.href.indexOf("kommanderesor") != -1) {
@@ -355,10 +365,12 @@ function confirmDelete() {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        //modal.setAttribute("aria-hidden","true");
     }
 
     closeButton.onclick = function() {
         modal.style.display = "none";
+        //modal.setAttribute("aria-hidden","true");
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -367,8 +379,6 @@ function confirmDelete() {
             modal.style.display = "none";
         }
     }
-
-
 }
 
 function confirmBooking() {
@@ -438,6 +448,7 @@ function confirmBooking() {
 function showModal() {
     // Get the modal
     var modal = document.getElementById("modal");
+    //var modalContent = document.getElementById('modal-content');
 
 
     // Get the <span> element that closes the modal
@@ -450,12 +461,15 @@ function showModal() {
     if (window.location.href.indexOf("bekraftaresa") != -1 ||
         window.location.href.indexOf("bekraftaaterkommanderesa") != -1||
         window.location.href.indexOf("bekraftaturoreturresa") != -1) {
+        //modal.setAttribute("aria-hidden","false");
+        //modalContent.focus();
         countDown();
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        //modal.setAttribute("aria-hidden","false");
     }
 
     closeButton.onclick = function() {
@@ -463,6 +477,7 @@ function showModal() {
             if (document.getElementById('newaddress').value > '') {
                 addAddress();
                 modal.style.display = "none";
+                //modal.setAttribute("aria-hidden","true");
             }
         }
 
@@ -490,6 +505,7 @@ function showModal() {
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            modal.setAttribute("aria-hidden","true");
         }
     }
 
@@ -557,7 +573,6 @@ function countDown() {
 }
 
 function showDays() {
-
     var showDays =
         `<input type="checkbox" id="day0" value="Måndag" name="monday">
     <label for="day0">Måndag</label><br>
@@ -586,14 +601,18 @@ function showDays() {
 
     var showMonths = `<label for="startmonth">Startmånad</label>
     <input type="month" name="month" id="startmonth" required>
+    <span>Fältet 'Startmånad' krävs.<br></span>
     <label for="endmonth">Slutmånad</label>
-    <input type="month" name="endmonth" id="endmonth" required>`;
+    <input type="month" name="endmonth" id="endmonth" required>
+    <span>Fältet 'Slutmånad' krävs.<br></span>`;
 
     switch (document.getElementById('repeatTransport').value) {
         case "Valfria dagar":
+            console.log("works");
             document.getElementById('days').innerHTML = showDays;
             document.getElementById('weeks').innerHTML = showWeeks;
             document.getElementById('days').style.display = "block";
+            document.getElementById('weeks').style.display = "block";
             document.getElementById('months').innerHTML = "";
             break;
 
@@ -604,6 +623,7 @@ function showDays() {
             document.getElementById("day3").checked = true;
             document.getElementById("day4").checked = true;
             document.getElementById('weeks').innerHTML = showWeeks;
+            document.getElementById('weeks').style.display = "block";
             document.getElementById('days').style.display = "none";
             document.getElementById('months').style.display = "none";
             break;
@@ -612,6 +632,7 @@ function showDays() {
             document.getElementById('days').innerHTML = showDays;
             document.getElementById('weeks').innerHTML = showWeeks;
             document.getElementById('days').style.display = "block";
+            document.getElementById('weeks').style.display = "block";
             document.getElementById('months').innerHTML = "";
             document.getElementById('months').style.display = "none";
             break;
@@ -620,6 +641,7 @@ function showDays() {
             document.getElementById('days').innerHTML = showDays;
             document.getElementById('weeks').innerHTML = showWeeks;
             document.getElementById('days').style.display = "block";
+            document.getElementById('weeks').style.display = "block";
             document.getElementById('months').innerHTML = "";
             document.getElementById('months').style.display = "none";
             break;
@@ -631,7 +653,6 @@ function showDays() {
             document.getElementById('months').innerHTML = showMonths;
             document.getElementById('weeks').innerHTML = "";
             document.getElementById('weeks').style.display = "none";
-            editAterkommandeResa();
             break;
 
         default:
@@ -639,6 +660,7 @@ function showDays() {
             document.getElementById('weeks').innerHTML = showWeeks;
             document.getElementById('days').style.display = "block";
             document.getElementById('months').style.display = "none";
+            document.getElementById('weeks').style.display = "block";
             document.getElementById('months').innerHTML = "";
 
     }
@@ -760,6 +782,8 @@ function editBooking() {
 }
 
 function editAterkommandeResa() {
+    console.log("Inne i editAterkommandeResa");
+  
     if (JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking')) != null || JSON.parse(localStorage.getItem('repeatedBooking')) != null) {
 
         if (JSON.parse(localStorage.getItem('unAcceptedRepeatedBooking')) != null) {
@@ -768,13 +792,16 @@ function editAterkommandeResa() {
             var data = JSON.parse(localStorage.getItem('repeatedBooking'));
         }
 
+        document.getElementById('repeatTransport').value = data.repeatTransport;
+        showDays();
+        
+
         var splitDate = data.date;
         const dateArray = splitDate.split(',');
 
         for (var i = 0; i < dateArray.length; i++) {
             switch (dateArray[i]) {
-                case " Måndag":
-                    console.log("True");
+                case " Måndag": 
                     document.getElementById("day0").checked = true;
                     break;
 
@@ -801,10 +828,19 @@ function editAterkommandeResa() {
                 case " Söndag":
                     document.getElementById("day6").checked = true;
                     break;
+
+                case "Måndag-Fredag":
+                    for(var i=0;i<5;i++){
+                        document.getElementById("day"+i).checked = true;
+                    }
+                    
+                    break;
                 default:
-                    console.log("False");
+                    
             }
         }
+
+        
 
         if (data.startWeek != null) {
             document.getElementById('startweek').value = data.startWeek;
@@ -819,8 +855,8 @@ function editAterkommandeResa() {
 
         }
 
-
-        document.getElementById('repeatTransport').value = data.repeatTransport;
+        
+        
 
         document.getElementById("fromAdress").value = data.fromAdress;
         document.getElementById("toAdress").value = data.toAdress;
@@ -944,22 +980,22 @@ function calculateDay(day,month,year) {
 }
 
 function IsEmpty() {
-  
     var inputs = document.getElementsByTagName('input');
     var span = document.querySelectorAll('form span');
-    
     
     for(var key in inputs) {
         var value = inputs[key].value;
         if(value < 1) {
-        
-            console.log(inputs[key]);
             inputs[key].className = "error";
             span[key].className='required';
-
         }
-    }
+    } 
 }
-    
-    
+/*
+$("input[type='button']").keydown(function(ev) {
+    if (ev.which ==13) {
+    $(this).click()
+    }
+    });
+*/
   
