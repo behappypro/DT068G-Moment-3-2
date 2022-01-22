@@ -331,7 +331,7 @@ function confirmDelete() {
     getElements();
     // Get the modal
     var modal = document.getElementById("modal");
-    var modalContent = document.getElementById('modal-content');
+    //var modalContent = document.getElementById('modal-content');
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -440,7 +440,7 @@ function confirmBooking() {
 
     else{
       localStorage.setItem('twoWayBooking', JSON.stringify(data));
-      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/bokatturoreturresa.html");
+      window.location.replace("http://studenter.miun.se/~asha1900/dt068g/moment3-2/bokadturoretur.html");
 
     }
 
@@ -993,9 +993,9 @@ function IsEmpty() {
     } 
 }
 /*
-$("input[type='button']").keydown(function(ev) {
+("input[type='button']").keydown(function(ev) {
     if (ev.which ==13) {
-    $(this).click()
+    this.click()
     }
     });
 */

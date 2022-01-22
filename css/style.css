@@ -163,7 +163,7 @@ nav ul{
 }
 
 nav ul, #sitemap{
-    font-size: 1.125rem;
+    font-size: 1.325rem;
     line-height: 2.5rem;
     list-style-type: none;
     margin: 0;
@@ -211,7 +211,7 @@ nav a{
     font-weight: 700;
 }
 
-nav ul li a:hover{
+nav ul li a:hover,.activePage{
     background-color: #0B4F7D;
 }
 
@@ -516,6 +516,7 @@ footer section a{
 
 footer section a {
     padding-bottom: 15px;
+    font-size: 1.3rem;
 }
 /*End footer*/
 
@@ -1089,6 +1090,16 @@ footer section a {
         padding: 0 0 10px 0;
     }
 
+    #test{
+        width: 45%;
+        float: left;
+    }
+
+    #test2{
+        width: 45%;
+        float: right;
+        margin-right: 10%;
+    }
  
   
 
