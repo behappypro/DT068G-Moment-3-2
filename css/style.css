@@ -1,5 +1,6 @@
 @import url(normalize.css);
 
+/*Primära färger*/
 :root {
     --main-bg-color: #11304E;
     --main-txt-color:#333333;
@@ -520,18 +521,18 @@ footer section a {
 }
 /*End footer*/
 
-/* The Modal (background) */
+/* Start modal */
 .modal {
     display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
   }
   
   /* Modal Content */
@@ -598,7 +599,7 @@ footer section a {
     max-width: 350px;
 }
   
-  /* Add Animation */
+  /* Animation modal  */
   @-webkit-keyframes animatetop {
     from {opacity:0} 
     to {opacity:1}
@@ -609,7 +610,7 @@ footer section a {
     to {opacity:1}
   }
   
-  /* The Close Button */
+  /* The Modal Close Button */
   .close {
     color: #000;
     float: right;
@@ -617,8 +618,7 @@ footer section a {
     font-weight: bold;
   }
 
-  
-  
+
   .close:hover,
   .close:focus {
     color: #000;
@@ -944,7 +944,6 @@ footer section a {
     @media screen and (max-width: 780px) {
         .ham {
             position: relative;
-            /* keep the hamburger button above everything */
             z-index: 100;
             top: 1rem;
             right: 1rem;
@@ -976,7 +975,6 @@ footer section a {
             height: 100vh;
             color: white;
             transform: translateY(-100%);
-            /*transition: transform .8s;*/
             list-style-type: none;
             padding-top: 4rem;
             margin: auto 0;
