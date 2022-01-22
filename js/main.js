@@ -562,7 +562,7 @@ function reBook() {
 }
 
 function countDown() {
-    var timeleft = 2;
+    var timeleft = 4;
     var downloadTimer = setInterval(function() {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
@@ -992,11 +992,3 @@ function IsEmpty() {
         }
     } 
 }
-/*
-("input[type='button']").keydown(function(ev) {
-    if (ev.which ==13) {
-    this.click()
-    }
-    });
-*/
-  
